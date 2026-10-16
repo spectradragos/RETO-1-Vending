@@ -11,6 +11,7 @@ public class Cliente{
         Una variable para el precio con IVA --> precioIVA
         Un contador que cuente las veces que se ha seleccionado
         un producto, para saber la cantidad --> contadorCantidadProducto 
+        scanner para la seleccion del producto
      */
 
     /* INFORMACION 
@@ -45,12 +46,41 @@ public class Cliente{
     public static void menuProductos(){
     }
 
-    // public static "tipo" seleccioProductos(){}
-    // public static "tipo" calculoPrecio(){}
-    // public static "tipo" calculoPrecioFinal(){}
-    // public static "tipo" mostrarResumenCompra(){} 
-    // public static "tipo" insertarDinero(){}
-    // public static "tipo" devolucionVueltas(){}
+    /**
+     * Pide al cliente que selecciones un producto
+     * @return devuleve un numero entero. 
+     */
+    public static int seleccioProductos(){
+    }
+
+
+    /**
+     * Calcula el precio total sin IVA
+     */
+    public static double calculoPrecio(){}
+
+    /**
+     * Calcula el precio final incluyendo el IVA
+     * @return devuelve el resulatdo en numero con decimales
+     */
+    public static double calculoPrecioFinal(){}
+
+    /**
+     * Muestra un resumen de la compra. 
+     */
+    public static void mostrarResumenCompra(){} 
+
+    /**
+     * Pide al usuario que inserte el dinero. 
+     * @return
+     */
+    public static double insertarDinero(){}
+
+    /**
+     * 
+     */
+    public static void devolucionVueltas(){}
+
 
     /**
      * Muestra un mensaje final de agradecimiento de compra
