@@ -3,15 +3,15 @@ public class Empleado{
 
     //CONSTANTES
     public final String USUARIO_CORRECTO = "Administrador";
-    public final String CONTRASEÑA_CORRECTA = "123456";
+    public final String CONTRASEÑA_CORRECTA = "Admin";
 
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
-        String[] tipoProductos ={};
-        String[] nombreProducto ={};
-        double[] precioProducto ={};
+        String[] tipoProductos = {};
+        String[] nombreProducto = {};
+        double[] precioProducto = {};
 
         mensajeBienvenida();
         inicioSesion();
@@ -29,19 +29,25 @@ public class Empleado{
     /**
      * Muestra un mensaje de bienvenida.
      */
-    public static void mensajeBienvenida(){}
+    public static void mensajeBienvenida(){
+
+    }
 
 
     /**
      * Pide al usuario inciar sesion para poder acceder al menu de administrador.
      */
-    public static void inicioSesion(){}
+    public static void inicioSesion(){
+
+    }
 
 
     /**
      * Muestra el menu de admistrador. 
      */
-    public static void menuAdministrador(){}
+    public static void menuAdministrador(){
+
+    }
 
 
     /**
@@ -79,7 +85,7 @@ public class Empleado{
      * Muestra un mensaje final de despedida
      */
     public static void mensajeFinal(){
-        
+
     }
     
 

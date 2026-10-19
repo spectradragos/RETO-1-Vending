@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Cliente{
 
@@ -119,7 +119,7 @@ public class Cliente{
     }
 
     /**
-     * Muestra un mensaje final de agradecimiento de compra
+     * Muestra un mensaje final de agradecimiento de compra.
      */
     public static void mensajeFinal(){
 
