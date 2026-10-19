@@ -1,16 +1,29 @@
+import java.util.*;
 public class Empleado{
 
     //CONSTANTES
     public final String USUARIO_CORRECTO = "Administrador";
     public final String CONTRASEÑA_CORRECTA = "123456";
 
-    /* VARIABLES
-    El array de los tipos, productos y precios.
-    Menu administrador --> no se si en un array o 
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
 
+        String[] tipoProductos ={};
+        String[] nombreProducto ={};
+        double[] precioProducto ={};
 
-    */
-    public static void main(String[] args) {}
+        mensajeBienvenida();
+        inicioSesion();
+        menuAdministrador();
+        anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
+        modificarProducto(nombreProducto, precioProducto);
+        eliminarProducto(tipoProductos, nombreProducto, precioProducto);
+        mensajeFinal();
+
+        scanner.close();
+
+    }
 
     
     /**
@@ -32,27 +45,42 @@ public class Empleado{
 
 
     /**
-     * Permite añadir nuevos productos junto a su respectivo precio.
+     * Permite añadir nuevos productos a la maquina
+     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos
+     * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void anadirNuevoProducto(){}
+    public static void anadirNuevoProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
+
+    }
 
 
     /**
-     * Permite modificar un producto.
+     * Permite modificar la informacion de un producto.
+     * @param nombreProducto Array que contiene los nombres de los productos
+     * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void modificarProducto(){}
+    public static void modificarProducto(String[] nombreProducto, double[] precioProducto){
 
+    }
 
+ 
     /**
      * Permite eliminar un producto.
+     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos
+     * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void eliminarProducto(){}
+    public static void eliminarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
 
+    }
 
     /**
-     * Muestra un mensaje final. 
+     * Muestra un mensaje final de despedida
      */
-    public static void mensajeFinal(){}
+    public static void mensajeFinal(){
+        
+    }
     
 
 

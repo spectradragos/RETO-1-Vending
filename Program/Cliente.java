@@ -1,102 +1,128 @@
+import java.util.Scanner;
+
 public class Cliente{
 
     //CONSTANTES
     public final double IVA = 0.21;
 
-    /* VARIABLES
-        Un array para los productos (se seleccionan mediante un numero) --> int[] producto
-        Un array para definir que productos son --> String[] nombreProducto
-        Un array para los precios con dos decimales --> Double[] precioProducto
-        Un array para mostrar los tipos de productos --> String[] tiposProductos
-        Una variable para el precio sin IVA --> precioNormal
-        Una variable para el precio con IVA --> precioIVA
-        Un contador que cuente las veces que se ha seleccionado
-        un producto, para saber la cantidad --> contadorCantidadProducto 
-        scanner para pedir la seleccion del tipo de producto y del producto en si. 
-     */
+    public static void main(String[] args){
+    Scanner scanner = new Scanner (System.in);
 
-    /* INFORMACION 
-        Tipo 1: Bebidas                         
-        Tipo 2: Comida                          
-        Tipo 3: Powerbanks/cargadores           
-        Tipo 4: Sobres de cartas coleccionables 
+    String[] tipoProductos ={};
+    String[] nombreProducto ={};
+    double[] precioProducto ={};
+    int[] producto={};
 
-        calculo del precio total -->(precio base * 0,21) + precio base.
-        (precio base * 0,21) --> para saber cuanto vale solo el IVA
+    int contadorSeleccion =0; // para contar cuántos productos diferentes
+    int contadorCantidadProducto =0; // para saber cuántos del mismo producto
+    double precioNormal =0.0; //para almacenar el precio sin IVA
+    double precioIVA=0.0; // para el precio con iVA
+    double dineroIngresado = 0.0;
 
-    */
-    
-    public static void main(String[] args) { 
-        //int[] tipoProductos = new int[4];
-        //Double[] precioProductos = new Double[4];
+    mensajeBienvenida();
+    menuTipos(tipoProductos);
+    menuProductos(tipoProductos, nombreProducto, precioProducto);
+    seleccioProductos(producto, contadorSeleccion, contadorCantidadProducto, scanner);
+    precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
+    precioIVA = calculoPrecioFinal(precioNormal);
+    mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA);
+    dineroIngresado = insertarDinero();
+    devolucionVueltas(precioIVA, dineroIngresado);
+    mensajeFinal();
 
-
+    scanner.close();
 
     }
+
 
     /**
      * Muestra un mensaje de bienvenida al cliente.
      */
     public static void mensajeBienvenida(){
+
     }
 
     /**
-     * Muestra el menu de tipos de productos.
+     * Muestra el menú de tipos de productos.
+     * @param tiposProductos Array que contiene los tipos de los productos.
      */  
-    public static void menuTipos(){
+    public static void menuTipos(String[] tiposPrductos){
+
     }
 
     /**
-     * Muestra el menu de productos de un solo tipo. 
+     * Muestra el menú de productos de un solo tipo. 
+     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos
+     * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(){
+    public static void menuProductos(String[] tiposPrductos, String[] nombreProducto, double[] precioProducto){
+
     }
 
     /**
      * Pide al cliente que selecciones un producto
-     * @return devuleve un numero entero. 
+     * @param producto Array con la posicion de los productos.
+     * @param contadorSeleccion Cuenta cuantos productos diferentes 
+     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado
+     * @param scanner Pide al usuario que ingrese el numero del producto.
+     * @return devuleve un número entero. 
      */
-    public static int seleccioProductos(){}
-
+    public static int seleccioProductos(int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
+        return 0;
+    }
 
     /**
      * Calcula el precio total sin IVA
+     * @param contadorSeleccion Cuenta cuantos productos diferentes 
+     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado
+     * @param precioProducto Un array con los precios de los productos
+     * @return un double con el precio sin el IVA
      */
-    public static double calculoPrecio(){}
-
-
+    public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[] precioProducto){
+        return 0.0;
+    }
 
     /**
      * Calcula el precio final incluyendo el IVA
-     * @return devuelve el resulatdo en numero con decimales
+     * @param precioNormal El importe sin iVA
+     * @return Un double con el precio con IVA
      */
-    public static double calculoPrecioFinal(){}
-
-
+    public static double calculoPrecioFinal(double precioNomal){
+        return 0.0; 
+    }
 
     /**
      * Muestra un resumen de la compra. 
+     * @param contadorSeleccion Cuenta cuantos productos diferentes
+     * @param precioNormal El importe sin iVA
+     * @param precioIVAl El importe total incluyendo el IVA
      */
-    public static void mostrarResumenCompra(){} 
+    public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA){
+
+    } 
 
 
     /**
-     * Pide al usuario que inserte el dinero. 
-     * @return
-     */
-    public static double insertarDinero(){}
-
+    * Pide al usuario que inserte el dinero. 
+    * @return Muestra un double con el dinero a ingresar.
+    */
+    public static double insertarDinero(){
+        return 0.0;
+    }
 
     /**
-     * Calcula cuanto dinero tiene que devolver
+     * Calcula el cambio a devolver. 
      */
-    public static double calcularVueltas(){}
+    public static void devolucionVueltas(double precioIVA, double dineroIngresado){
 
+    }
 
     /**
      * Muestra un mensaje final de agradecimiento de compra
      */
-    public static void mensajeFinal(){}
+    public static void mensajeFinal(){
 
+    }
 
 }
