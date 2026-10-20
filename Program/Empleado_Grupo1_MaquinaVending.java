@@ -1,5 +1,5 @@
 import java.util.*;
-public class Empleado{
+public class Empleado_Grupo1_MaquinaVending{
 
     //CONSTANTES
     public final String USUARIO_CORRECTO = "Administrador";
@@ -14,13 +14,18 @@ public class Empleado{
         double[] precioProducto = {};
 
         mensajeBienvenida();
-        inicioSesion();
-        menuAdministrador();
-        anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
-        modificarProducto(nombreProducto, precioProducto);
-        eliminarProducto(tipoProductos, nombreProducto, precioProducto);
-        mensajeFinal();
+        boolean accesoCorrecto = inicioSesion();
+        //if para comprobar si el acceso es correcto o no.       
+       if (accesoCorrecto){
+           menuAdministrador();
+           anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
+           modificarProducto(tipoProductos,nombreProducto, precioProducto);
+           eliminarProducto(tipoProductos, nombreProducto, precioProducto);
+        }else{
+           //mostrar un mensaje de acceso denegado. 
+        };
 
+        mensajeFinal();
         scanner.close();
 
     }
@@ -37,8 +42,8 @@ public class Empleado{
     /**
      * Pide al usuario inciar sesion para poder acceder al menu de administrador.
      */
-    public static void inicioSesion(){
-
+    public static boolean inicioSesion(){
+        
     }
 
 
@@ -63,10 +68,11 @@ public class Empleado{
 
     /**
      * Permite modificar la informacion de un producto.
+     * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void modificarProducto(String[] nombreProducto, double[] precioProducto){
+    public static void modificarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
 
     }
 

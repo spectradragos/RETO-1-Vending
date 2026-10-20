@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Cliente{
+public class Cliente_Grupo1_MaquinaVending{
 
     //CONSTANTES
     public final double IVA = 0.21;
@@ -13,10 +13,10 @@ public class Cliente{
     double[] precioProducto ={};
     int[] producto={};
 
-    int contadorSeleccion =0; // para contar cuántos productos diferentes
-    int contadorCantidadProducto =0; // para saber cuántos del mismo producto
-    double precioNormal =0.0; //para almacenar el precio sin IVA
-    double precioIVA=0.0; // para el precio con iVA
+    int contadorSeleccion = 0; // para contar cuántos productos diferentes
+    int contadorCantidadProducto = 0; // para saber cuántos del mismo producto
+    double precioNormal = 0.0; //para almacenar el precio sin IVA
+    double precioIVA = 0.0; // para el precio con iVA
     double dineroIngresado = 0.0;
 
     mensajeBienvenida();
