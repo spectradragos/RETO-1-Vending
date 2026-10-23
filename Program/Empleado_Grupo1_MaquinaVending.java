@@ -38,7 +38,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida.
      */
     public static void mensajeBienvenida(){
-            System.out.println("Bienvenido al menu de administración de la maquina. Debera iniciar sesion para poder continuar.");
+            System.out.println("Bienvenido a la administración de la maquina. Debera iniciar sesion para poder continuar.");
             System.out.println();
 
     }
@@ -115,9 +115,4 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println("Muchas gracias!");
 
     }
-    
-
-
-
-
 }
