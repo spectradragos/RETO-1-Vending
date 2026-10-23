@@ -53,7 +53,8 @@ public class Empleado_Grupo1_MaquinaVending{
         String user = scanner.nextLine();
         System.out.print("Introduzca la contraseña: ");
         String password = scanner.nextLine();
-// Comprueba que lo 
+
+        // Comprueba que lo intruducido es igual a lo establecido
         if (user.equals(USUARIO_CORRECTO) && password.equals(CONTRASEÑA_CORRECTA)){
             return true; 
         }else{
@@ -81,6 +82,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void anadirNuevoProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
+        System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
 
     }
 
@@ -92,7 +94,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void modificarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
-
+        System.out.println("----MODIFICAR UN PRODUCTO----");
     }
 
  
@@ -103,13 +105,14 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void eliminarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto){
-
+        System.out.println("----ELIMINAR UN PRODUCTO----");
     }
 
     /**
      * Muestra un mensaje final de despedida
      */
     public static void mensajeFinal(){
+        System.out.println("Muchas gracias!");
 
     }
     
