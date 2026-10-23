@@ -21,7 +21,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     mensajeBienvenida();
     menuTipos(tipoProductos, scanner);
-    menuProductos(tipoProductos, nombreProducto, precioProducto);
+    menuProductos(tipoProductos, nombreProducto, precioProducto, scanner);
     seleccioProductos(producto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
     precioIVA = calculoPrecioFinal(precioNormal);
@@ -64,8 +64,10 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(String[] tipoProductos, String[] nombreProducto, double[] precioProducto ){
+    public static void menuProductos(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println("----PRODUCTOS----");
+       
+
         
 
     }

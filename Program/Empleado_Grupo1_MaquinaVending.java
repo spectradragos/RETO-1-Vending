@@ -2,8 +2,8 @@ import java.util.*;
 public class Empleado_Grupo1_MaquinaVending{
 
     //CONSTANTES
-    public final String USUARIO_CORRECTO = "Administrador";
-    public final String CONTRASEÑA_CORRECTA = "Admin";
+    public static final String USUARIO_CORRECTO = "Admin";
+    public static final String CONTRASEÑA_CORRECTA = "Admin";
 
     
     public static void main(String[] args) {
@@ -13,19 +13,22 @@ public class Empleado_Grupo1_MaquinaVending{
         String[] nombreProducto = {};
         double[] precioProducto = {};
 
-        mensajeBienvenida();
-        boolean accesoCorrecto = inicioSesion();
-        //if para comprobar si el acceso es correcto o no.       
-       if (accesoCorrecto){
-           menuAdministrador();
-           anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
-           modificarProducto(tipoProductos,nombreProducto, precioProducto);
-           eliminarProducto(tipoProductos, nombreProducto, precioProducto);
-        }else{
-           //mostrar un mensaje de acceso denegado. 
-        };
+        String usuario = "";
+        String contraseña = "";
 
-        mensajeFinal();
+
+        mensajeBienvenida();
+        boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
+        //if para comprobar si el acceso es correcto o no.       
+        if (accesoCorrecto){
+            menuAdministrador();
+            anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
+            modificarProducto(tipoProductos,nombreProducto, precioProducto);
+            eliminarProducto(tipoProductos, nombreProducto, precioProducto);
+            mensajeFinal();
+        }else{
+           System.out.println("ACCESO DENEGADO! NO ESTA ACREDITADO PARA CONTINUAR. ");
+        };
         scanner.close();
 
     }
@@ -35,15 +38,27 @@ public class Empleado_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida.
      */
     public static void mensajeBienvenida(){
-            System.out.println("Bienvenido al menu de administración de la maquina.");
+            System.out.println("Bienvenido al menu de administración de la maquina. Debera iniciar sesion para poder continuar.");
+            System.out.println();
+
     }
 
 
     /**
      * Pide al usuario inciar sesion para poder acceder al menu de administrador.
      */
-    public static boolean inicioSesion(){
-        
+    public static boolean inicioSesion(String usuario, String contraseña, Scanner scanner ){
+        System.out.println("----INICIO DE SESION----");
+        System.out.print("Introduzca el usuario: ");
+        String user = scanner.nextLine();
+        System.out.print("Introduzca la contraseña: ");
+        String password = scanner.nextLine();
+// Comprueba que lo 
+        if (user.equals(USUARIO_CORRECTO) && password.equals(CONTRASEÑA_CORRECTA)){
+            return true; 
+        }else{
+            return false;
+        }
     }
 
 
@@ -51,6 +66,10 @@ public class Empleado_Grupo1_MaquinaVending{
      * Muestra el menu de admistrador. 
      */
     public static void menuAdministrador(){
+        System.out.println();
+        System.out.println("BIENVENIDO AL SISTEMA! Aqui podra administrar el sistema de la maquina expendedora, por lo tanto, se le mostrara el menu con las diferentes opciones.");
+        System.out.println();
+        System.out.println("----MENU DE ADMINISTRACION----");
 
     }
 
