@@ -21,11 +21,7 @@ public class Empleado_Grupo1_MaquinaVending{
         boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
         //if para comprobar si el acceso es correcto o no.       
         if (accesoCorrecto){
-            menuAdministrador();
-            anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
-            modificarProducto(tipoProductos,nombreProducto, precioProducto);
-            eliminarProducto(tipoProductos, nombreProducto, precioProducto);
-            mensajeFinal();
+            menuAdministrador(tipoProductos, nombreProducto, precioProducto,scanner);
         }else{
            System.out.println("ACCESO DENEGADO! NO ESTA ACREDITADO PARA CONTINUAR. ");
         };
@@ -65,13 +61,36 @@ public class Empleado_Grupo1_MaquinaVending{
 
     /**
      * Muestra el menu de admistrador. 
+     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos.
+     * @param precioProducto Array que contiene los precios de los productos.
      */
-    public static void menuAdministrador(){
+    public static void menuAdministrador(String[] tipoProductos, String[] nombreProducto, double[] precioProducto,Scanner scanner){
         System.out.println();
         System.out.println("BIENVENIDO AL SISTEMA! Aqui podra administrar el sistema de la maquina expendedora, por lo tanto, se le mostrara el menu con las diferentes opciones.");
         System.out.println();
         System.out.println("----MENU DE ADMINISTRACION----");
+        System.out.println("1. Añadir un nuevo producto.");
+        System.out.println("2. Modificar un producto.");
+        System.out.println("3. Eliminar un producto.");
+        System.out.println("4. Salir. ");
+        System.out.print("Selecciona una opcion del 1 al 4: ");
+        int opcion = scanner.nextInt(); 
 
+        switch (opcion){
+            case 1:
+                anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto);
+                break; 
+            case 2:
+                modificarProducto(tipoProductos,nombreProducto,precioProducto);
+                break; 
+            case 3: 
+                eliminarProducto(tipoProductos, nombreProducto, precioProducto);
+                break; 
+            case 4: 
+                mensajeFinal();
+                break; 
+        }
     }
 
 
