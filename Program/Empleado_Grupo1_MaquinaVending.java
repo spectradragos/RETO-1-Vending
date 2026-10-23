@@ -35,7 +35,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida.
      */
     public static void mensajeBienvenida(){
-
+            System.out.println("Bienvenido al menu de administración de la maquina.");
     }
 
 

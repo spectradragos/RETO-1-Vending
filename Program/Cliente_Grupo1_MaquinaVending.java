@@ -8,8 +8,8 @@ public class Cliente_Grupo1_MaquinaVending{
     public static void main(String[] args){
     Scanner scanner = new Scanner (System.in);
 
-    String[] tipoProductos ={};
-    String[] nombreProducto ={};
+    String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
+    String[] nombreProducto ={"Haribo", "Chuca-Chups", "Agua", "Coca-Cola", "Powerbank", "Cable Tipo C", "Pokemon", "Magic"};
     double[] precioProducto ={};
     int[] producto={};
 
@@ -20,7 +20,7 @@ public class Cliente_Grupo1_MaquinaVending{
     double dineroIngresado = 0.0;
 
     mensajeBienvenida();
-    menuTipos(tipoProductos);
+    menuTipos(tipoProductos, scanner);
     menuProductos(tipoProductos, nombreProducto, precioProducto);
     seleccioProductos(producto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
@@ -39,15 +39,23 @@ public class Cliente_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida al cliente.
      */
     public static void mensajeBienvenida(){
+        System.out.println("Bienvenido a Sestao-Vending.");
+        System.out.println();
 
     }
 
     /**
      * Muestra el menú de tipos de productos.
-     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param tipoProductos Array que contiene los tipos de los productos.
      */  
-    public static void menuTipos(String[] tiposPrductos){
-
+    public static void menuTipos(String[] tipoProductos, Scanner scanner){
+        System.out.println("----TIPOS DE PRODUCTOS----");
+        for (int i = 0; i < tipoProductos.length; i++){
+            System.out.println(tipoProductos[i]);
+        }
+        System.out.print("Seleccione un tipo de producto: ");
+        String tipo = scanner.nextLine();
+        System.out.println("Ha seleccionado el tipo: " + tipo);
     }
 
     /**
@@ -56,9 +64,14 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(String[] tiposPrductos, String[] nombreProducto, double[] precioProducto){
+    public static void menuProductos(String[] tipoProductos, String[] nombreProducto, double[] precioProducto ){
+        System.out.println("----PRODUCTOS----");
+        
 
     }
+        
+
+    
 
     /**
      * Pide al cliente que selecciones un producto
@@ -122,6 +135,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * Muestra un mensaje final de agradecimiento de compra.
      */
     public static void mensajeFinal(){
+        System.out.println("Muchas gracias por su compra y hasta pronto!.");
 
     }
 
