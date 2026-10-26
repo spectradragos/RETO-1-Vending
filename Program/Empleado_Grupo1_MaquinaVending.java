@@ -109,6 +109,10 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println("Introduzca el nombre del producto: ");
         System.out.println("Introduzca el precio: ");
 
+        //codigo
+
+        //vuelta al menu
+
 
     }
 
@@ -122,8 +126,17 @@ public class Empleado_Grupo1_MaquinaVending{
     public static void modificarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.println("----MODIFICAR UN PRODUCTO----");
         System.out.println("¿Que quieres modificar?");
+        //codigo
+
+        //vuelta al menu
+        
+       
+        
+
     }
 
+
+    
 
     /**
      * Permite eliminar un producto.
@@ -133,7 +146,10 @@ public class Empleado_Grupo1_MaquinaVending{
      */
     public static void eliminarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println("----ELIMINAR UN PRODUCTO----");
-         System.out.println("¿Que producto quieres eliminar?");
+        System.out.println("¿Que producto quieres eliminar?");
+        //codigo
+
+        //vuelta al menu
     }
 
     /**
