@@ -9,7 +9,7 @@ public class Cliente_Grupo1_MaquinaVending{
     Scanner scanner = new Scanner (System.in);
 
     String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
-    String[] nombreProducto ={"Haribo", "Chuca-Chups", "Agua", "Coca-Cola", "Powerbank", "Cable Tipo C", "Pokemon", "Magic"};
+    String[][] nombreProducto ={{"Haribo", "Chuca-Chups"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
     double[] precioProducto ={};
     int[] producto={};
 
@@ -64,7 +64,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner ){
+    public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println("----PRODUCTOS----");
 
        

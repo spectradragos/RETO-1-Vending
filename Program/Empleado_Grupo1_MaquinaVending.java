@@ -2,15 +2,15 @@ import java.util.*;
 public class Empleado_Grupo1_MaquinaVending{
 
     //CONSTANTES
-    public static final String USUARIO_CORRECTO = "Admin";
-    public static final String CONTRASEÑA_CORRECTA = "Admin";
+    public static final String USUARIO_CORRECTO = "Admin_Pato";
+    public static final String CONTRASEÑA_CORRECTA = "Admin_Trigonometria_oriental";
 
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
         String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
-        String[] nombreProducto = {};
+        String[][] nombreProducto = {};
         double[] precioProducto = {};
 
         String usuario = "";
@@ -68,7 +68,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos.
      * @param precioProducto Array que contiene los precios de los productos.
      */
-    public static void menuAdministrador(String[] tipoProductos, String[] nombreProducto, double[] precioProducto,Scanner scanner){
+    public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto,Scanner scanner){
         System.out.println();
         System.out.println("BIENVENIDO AL SISTEMA! Aqui podra administrar el sistema de la maquina expendedora. A continuación, se le mostrara el menu con las diferentes opciones.");
         System.out.println();
@@ -103,7 +103,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void anadirNuevoProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner){
+    public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
         System.out.println("Introduzca el tipo del producto: ");
         System.out.println("Introduzca el nombre del producto: ");
@@ -123,7 +123,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void modificarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner){
+    public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.println("----MODIFICAR UN PRODUCTO----");
         System.out.println("¿Que quieres modificar?");
         //codigo
@@ -144,7 +144,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void eliminarProducto(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner ){
+    public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println("----ELIMINAR UN PRODUCTO----");
         System.out.println("¿Que producto quieres eliminar?");
         //codigo
