@@ -66,15 +66,13 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static void menuProductos(String[] tipoProductos, String[] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println("----PRODUCTOS----");
+
        
 
         
 
     }
         
-
-    
-
     /**
      * Pide al cliente que selecciones un producto
      * @param producto Array con la posicion de los productos.
