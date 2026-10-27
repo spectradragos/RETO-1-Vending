@@ -8,8 +8,8 @@ public class Cliente_Grupo1_MaquinaVending{
     public static void main(String[] args){
     Scanner scanner = new Scanner (System.in);
 
-    String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
-    String[][] nombreProducto ={{"Haribo", "Chuca-Chups"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
+    String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
+    String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
     double[] precioProducto ={};
     int[] producto={};
 
@@ -21,7 +21,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     mensajeBienvenida();
     menuTipos(tipoProductos, scanner);
-    menuProductos(tipoProductos, nombreProducto, precioProducto, scanner);
+    menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
     seleccioProductos(producto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
     precioIVA = calculoPrecioFinal(precioNormal);
@@ -54,8 +54,11 @@ public class Cliente_Grupo1_MaquinaVending{
             System.out.println(tipoProductos[i]);
         }
         System.out.print("Seleccione un tipo de producto: ");
-        String tipo = scanner.nextLine();
-        System.out.println("Ha seleccionado el tipo: " + tipo);
+        int tipo = scanner.nextInt();
+
+        
+
+        
     }
 
     /**
@@ -64,14 +67,24 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
+    public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto,  Scanner scanner ){
+        int tipo = scanner.nextInt();
         System.out.println("----PRODUCTOS----");
+        switch (tipo){
+            case 1:
+                //mostrar productos del primer tipo
+            case 2: 
+                //mostrar productos del segundo tipo
+            case 3:
+                //mostrar productos del tercer tipo
+            case 4: 
+                //mostrar productos del cuarto tipo
 
-       
 
-        
-
+        }
     }
+
+
         
     /**
      * Pide al cliente que selecciones un producto
@@ -82,6 +95,8 @@ public class Cliente_Grupo1_MaquinaVending{
      * @return devuleve un número entero. 
      */
     public static int seleccioProductos(int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
+        
+        
         return 0;
     }
 

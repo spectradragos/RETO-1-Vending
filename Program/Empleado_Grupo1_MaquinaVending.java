@@ -2,15 +2,15 @@ import java.util.*;
 public class Empleado_Grupo1_MaquinaVending{
 
     //CONSTANTES
-    public static final String USUARIO_CORRECTO = "Admin_Pato";
-    public static final String CONTRASEÑA_CORRECTA = "Admin_Trigonometria_oriental";
+    public static final String USUARIO_CORRECTO = "Admin";
+    public static final String CONTRASEÑA_CORRECTA = "Admin";
 
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
         String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
-        String[][] nombreProducto = {};
+        String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
         double[] precioProducto = {};
 
         String usuario = "";
@@ -105,6 +105,7 @@ public class Empleado_Grupo1_MaquinaVending{
      */
     public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
+        
         System.out.println("Introduzca el tipo del producto: ");
         System.out.println("Introduzca el nombre del producto: ");
         System.out.println("Introduzca el precio: ");
