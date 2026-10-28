@@ -10,7 +10,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
     String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-    double[][] precioProducto ={{}, {}, {}, {}};
+    double[][] precioProducto ={{2.00, 1.20}, {1.00, 2.50}, {}, {}};
     int[] producto={};
 
     int contadorSeleccion = 0; // para contar cuántos productos diferentes
@@ -68,44 +68,48 @@ public class Cliente_Grupo1_MaquinaVending{
         
         switch (tipo){
             case 1:
-                //Mostrar lo productos 
+                //Mostrar los productos 
                 for (int i = 0; i < nombreProducto[0].length; i ++){
                     System.out.print(nombreProducto[0][i]+" ");
                 };
-                //Mostrar lo productos
+                System.out.println();
+                //Mostrar los precios
                 for (int i = 0; i < precioProducto[0].length; i ++){
                     System.out.print(precioProducto[0][i]+" ");
                 }
                 break;
 
             case 2: 
-                //Mostrar lo productos
+                //Mostrar los productos
                for (int i = 0; i < nombreProducto[1].length; i ++){
                     System.out.print(nombreProducto[1][i]+" ");
                 };
-                //Mostrar lo productos
+                System.out.println();
+                //Mostrar los precios
                 for (int i = 0; i < precioProducto[1].length; i ++){
                     System.out.print(precioProducto[1][i]+" ");
                 }
                 break;
 
             case 3:
-                //Mostrar lo productos
+                //Mostrar los productos
                 for (int i = 0; i < nombreProducto[2].length; i ++){
                     System.out.print(nombreProducto[2][i]+" ");
                 }
-                //Mostrar lo productos
+                System.out.println();
+                //Mostrar los precios
                 for (int i = 0; i < precioProducto[2].length; i ++){
                     System.out.print(precioProducto[2][i]+" ");
                 }
                 break;
 
             case 4: 
-                //Mostrar lo productos
+                //Mostrar los productos
                 for (int i = 0; i < nombreProducto[3].length; i ++){
                     System.out.print(nombreProducto[3][i]+" ");
                 };
-               //Mostrar lo productos
+                System.out.println();
+               //Mostrar losprecios 
                 for (int i = 0; i < precioProducto[3].length; i ++){
                     System.out.print(precioProducto[3][i]+" ");
                 }
