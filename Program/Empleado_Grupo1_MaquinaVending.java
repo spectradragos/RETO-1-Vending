@@ -123,7 +123,7 @@ public class Empleado_Grupo1_MaquinaVending{
         Double precioNuevo= scanner.nextDouble();
         scanner.nextLine();
 
-        System.out.println("Se ha introducido en el tipo "+tipoNuevo+" el producto "+nombreNuevo+" con el precio de "+precioNuevo+" euros.");
+        System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
         System.out.println();
 
         //Metodo para volver al menu. 
@@ -138,11 +138,15 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+        System.out.println();
+        scanner.nextLine();
         System.out.println("----MODIFICAR UN PRODUCTO----");
-        System.out.println("¿Que quieres modificar?");
-        //codigo
+        System.out.print("¿Que quieres modificar?(Nombre/Precio)");
 
-        //vuelta al menu
+        
+        
+        //Metodo para volver al menu. 
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
     }
 
     /**
@@ -152,11 +156,14 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
+        System.out.println();
+        scanner.nextLine();
         System.out.println("----ELIMINAR UN PRODUCTO----");
-        System.out.println("¿Que producto quieres eliminar?");
+        System.out.print("¿Que producto quieres eliminar?");
         //codigo
 
-        //vuelta al menu
+        //Metodo para volver al menu. 
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
     }
 
     /**
