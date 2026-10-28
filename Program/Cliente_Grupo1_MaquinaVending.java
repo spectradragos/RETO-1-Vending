@@ -9,8 +9,8 @@ public class Cliente_Grupo1_MaquinaVending{
     Scanner scanner = new Scanner (System.in);
 
     String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
-    String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-    double[][] precioProducto ={{2.00, 1.20}, {1.00, 2.50}, {}, {}};
+    String[][] nombreProducto ={{"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
+    double[][] precioProducto ={{2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, {1.00, 2.50}, {}, {}};
     int[] producto={};
 
     int contadorSeleccion = 0; // para contar cuántos productos diferentes
@@ -75,7 +75,7 @@ public class Cliente_Grupo1_MaquinaVending{
                 System.out.println();
                 //Mostrar los precios
                 for (int i = 0; i < precioProducto[0].length; i ++){
-                    System.out.print(precioProducto[0][i]+" ");
+                    System.out.print(precioProducto[0][i]+"     ");
                 }
                 break;
 
@@ -151,6 +151,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * @return Un double con el precio con IVA
      */
     public static double calculoPrecioFinal(double precioNomal){
+        
         return 0.0; 
     }
 
