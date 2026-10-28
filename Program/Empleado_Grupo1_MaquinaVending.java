@@ -160,6 +160,8 @@ public class Empleado_Grupo1_MaquinaVending{
                 Preguntar el precio nuevo
                 Modificar el precio
                 */
+            System.out.print("Introduce el nuevo precio del producto: ");
+            double nombreModificado = scanner.nextDouble();
         }else {
             System.out.println("Se ha introducido una opcion no valida!");
         };
