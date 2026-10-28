@@ -9,9 +9,9 @@ public class Empleado_Grupo1_MaquinaVending{
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
-        String[] tipoProductos ={"Chuches", "Bebidas", "Cargadores", "Sobres"};
-        String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-        double[] precioProducto = {};
+        String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
+        String[][] nombreProducto ={{"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
+        double[][] precioProducto ={{2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, {1.00, 2.50}, {}, {}};
 
         String usuario = "";
         String contraseña = "";
@@ -69,7 +69,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos.
      * @param scanner Lugar donde se guardara la información introducida. 
      */
-    public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto,Scanner scanner){
+    public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,Scanner scanner){
         System.out.println();
         System.out.println("BIENVENIDO AL SISTEMA! Aqui podra administrar el sistema de la maquina expendedora. A continuación, se le mostrara el menu con las diferentes opciones.");
         System.out.println();
@@ -110,7 +110,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      * @param scanner Lugar donde se guardara la información introducida. 
      */
-    public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+    public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
         //primero algo sencillo. 
         System.out.println();
         scanner.nextLine(); //limpia el scanner.
@@ -140,7 +140,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+    public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
         System.out.println();
         scanner.nextLine();
         System.out.println("----MODIFICAR UN PRODUCTO----");
@@ -177,7 +177,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
+    public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner ){
         System.out.println();
         scanner.nextLine();
         System.out.println("----ELIMINAR UN PRODUCTO----");
@@ -203,7 +203,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+    public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
         System.out.print("¿Quieres volver al menu?(Si/No) ");
         String vuelta = scanner.nextLine();
         switch (vuelta){
