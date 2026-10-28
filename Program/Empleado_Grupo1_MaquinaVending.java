@@ -78,6 +78,7 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println("3. Eliminar un producto.");
         System.out.println("4. Salir. ");
         System.out.print("Selecciona una opcion del 1 al 4: ");
+        
         int opcion = scanner.nextInt(); 
 
         switch (opcion){
@@ -92,7 +93,11 @@ public class Empleado_Grupo1_MaquinaVending{
                 break; 
             case 4: 
                 mensajeFinal();
-                mensajeBienvenida();
+                break;
+            default:
+                System.out.println("Opcion invalida. Por favor, vuelva a seleccionar una opcion valida.");
+                menuAdministrador(tipoProductos, nombreProducto, precioProducto, scanner);
+                    
         }
     }
 
@@ -104,19 +109,27 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param precioProducto Array que contiene los precios de los productos
      */
     public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+        //primero algo sencillo. 
+        System.out.println();
+        scanner.nextLine(); //limpia el scanner.
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
-        
-        System.out.println("Introduzca el tipo del producto: ");
-        System.out.println("Introduzca el nombre del producto: ");
-        System.out.println("Introduzca el precio: ");
+        System.out.print("Introduzca el tipo del producto: ");
+        String tipoNuevo= scanner.nextLine();
 
-        //codigo
+        System.out.print("Introduzca el nombre del producto: ");
+        String nombreNuevo= scanner.nextLine();
 
-        //vuelta al menu
+        System.out.print("Introduzca el precio: ");
+        Double precioNuevo= scanner.nextDouble();
+        scanner.nextLine();
 
+        System.out.println("Se ha introducido en el tipo "+tipoNuevo+" el producto "+nombreNuevo+" con el precio de "+precioNuevo+" euros.");
+        System.out.println();
+
+        //Metodo para volver al menu. 
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
 
     }
-
 
     /**
      * Permite modificar la informacion de un producto.
@@ -130,14 +143,7 @@ public class Empleado_Grupo1_MaquinaVending{
         //codigo
 
         //vuelta al menu
-        
-       
-        
-
     }
-
-
-    
 
     /**
      * Permite eliminar un producto.
@@ -159,5 +165,16 @@ public class Empleado_Grupo1_MaquinaVending{
     public static void mensajeFinal(){
         System.out.println("Muchas gracias por trabajar con nosotros!");
 
+    }
+
+    public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
+        System.out.print("¿Quieres volver al menu?(Si/No) ");
+        String vuelta = scanner.nextLine();
+        switch (vuelta){
+            case "Si":
+                menuAdministrador(tipoProductos, nombreProducto, precioProducto, scanner);
+            default:
+                break;
+        }
     }
 }

@@ -41,7 +41,6 @@ public class Cliente_Grupo1_MaquinaVending{
     public static void mensajeBienvenida(){
         System.out.println("Bienvenido a Sestao-Vending.");
         System.out.println();
-
     }
 
     /**
@@ -50,15 +49,11 @@ public class Cliente_Grupo1_MaquinaVending{
      */  
     public static void menuTipos(String[] tipoProductos, Scanner scanner){
         System.out.println("----TIPOS DE PRODUCTOS----");
+        System.out.println("En esta lista le mostraremos las categorias de nuestros productos.");
         for (int i = 0; i < tipoProductos.length; i++){
             System.out.println(tipoProductos[i]);
         }
-        System.out.print("Seleccione un tipo de producto: ");
-        int tipo = scanner.nextInt();
-
-        
-
-        
+        System.out.print("Seleccione un tipo de producto: ");    
     }
 
     /**
@@ -79,13 +74,10 @@ public class Cliente_Grupo1_MaquinaVending{
                 //mostrar productos del tercer tipo
             case 4: 
                 //mostrar productos del cuarto tipo
-
-
         }
+        System.out.println("Seleccione un producto: ");
     }
-
-
-        
+     
     /**
      * Pide al cliente que selecciones un producto
      * @param producto Array con la posicion de los productos.
@@ -153,5 +145,4 @@ public class Cliente_Grupo1_MaquinaVending{
         System.out.println("Muchas gracias por su compra y hasta pronto!.");
 
     }
-
 }
