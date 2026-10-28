@@ -67,6 +67,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos.
      * @param precioProducto Array que contiene los precios de los productos.
+     * @param scanner Lugar donde se guardara la información introducida. 
      */
     public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto,Scanner scanner){
         System.out.println();
@@ -107,6 +108,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param scanner Lugar donde se guardara la información introducida. 
      */
     public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         //primero algo sencillo. 
@@ -136,6 +138,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param scanner Lugar donde se guardara la información introducida.
      */
     public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.println();
@@ -145,9 +148,10 @@ public class Empleado_Grupo1_MaquinaVending{
         String modificacion= scanner.nextLine();
 
         if(modificacion == "Nombre"){
-            /* El nombre del producto antiguo
-               Preguntar el nombre nuevo
-               Modificar el nombre
+            /* Preguntar de que tipo es el producto.
+            El nombre del producto antiguo
+            Preguntar el nombre nuevo
+            Modificar el nombre
             */
         }else if (modificacion == "Precio"){
             /*  El precio antiguo
@@ -167,6 +171,7 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param scanner Lugar donde se guardara la información introducida.
      */
     public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner ){
         System.out.println();
@@ -187,6 +192,13 @@ public class Empleado_Grupo1_MaquinaVending{
 
     }
 
+    /**
+     * Permite volver al menu de administración de la maquina. 
+     * @param tiposProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos
+     * @param precioProducto Array que contiene los precios de los productos
+     * @param scanner Lugar donde se guardara la información introducida.
+     */
     public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto, Scanner scanner){
         System.out.print("¿Quieres volver al menu?(Si/No) ");
         String vuelta = scanner.nextLine();
