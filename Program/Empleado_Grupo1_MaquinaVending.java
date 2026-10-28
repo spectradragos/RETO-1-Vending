@@ -153,6 +153,8 @@ public class Empleado_Grupo1_MaquinaVending{
             Preguntar el nombre nuevo
             Modificar el nombre
             */
+            System.out.print("Introduce el nuevo nombre del producto: ");
+            String nombreModificado = scanner.nextLine();
         }else if (modificacion == "Precio"){
             /*  El precio antiguo
                 Preguntar el precio nuevo

@@ -10,7 +10,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
     String[][] nombreProducto ={{"Haribo", "Kit-Kat"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-    double[] precioProducto ={};
+    double[][] precioProducto ={{}, {}, {}, {}};
     int[] producto={};
 
     int contadorSeleccion = 0; // para contar cuántos productos diferentes
@@ -62,20 +62,58 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
      */
-    public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[] precioProducto,  Scanner scanner ){
+    public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,  Scanner scanner ){
         int tipo = scanner.nextInt();
         System.out.println("----PRODUCTOS----");
+        
         switch (tipo){
             case 1:
-                //mostrar productos del primer tipo
+                //Mostrar lo productos 
+                for (int i = 0; i < nombreProducto[0].length; i ++){
+                    System.out.print(nombreProducto[0][i]+" ");
+                };
+                //Mostrar lo productos
+                for (int i = 0; i < precioProducto[0].length; i ++){
+                    System.out.print(precioProducto[0][i]+" ");
+                }
+                break;
+
             case 2: 
-                //mostrar productos del segundo tipo
+                //Mostrar lo productos
+               for (int i = 0; i < nombreProducto[1].length; i ++){
+                    System.out.print(nombreProducto[1][i]+" ");
+                };
+                //Mostrar lo productos
+                for (int i = 0; i < precioProducto[1].length; i ++){
+                    System.out.print(precioProducto[1][i]+" ");
+                }
+                break;
+
             case 3:
-                //mostrar productos del tercer tipo
+                //Mostrar lo productos
+                for (int i = 0; i < nombreProducto[2].length; i ++){
+                    System.out.print(nombreProducto[2][i]+" ");
+                }
+                //Mostrar lo productos
+                for (int i = 0; i < precioProducto[2].length; i ++){
+                    System.out.print(precioProducto[2][i]+" ");
+                }
+                break;
+
             case 4: 
-                //mostrar productos del cuarto tipo
+                //Mostrar lo productos
+                for (int i = 0; i < nombreProducto[3].length; i ++){
+                    System.out.print(nombreProducto[3][i]+" ");
+                };
+               //Mostrar lo productos
+                for (int i = 0; i < precioProducto[3].length; i ++){
+                    System.out.print(precioProducto[3][i]+" ");
+                }
+                break;
         }
-        System.out.println("Seleccione un producto: ");
+        
+        System.out.println();
+        
     }
      
     /**
@@ -87,7 +125,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * @return devuleve un número entero. 
      */
     public static int seleccioProductos(int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
-        
+        System.out.println("Seleccione un producto: ");
         
         return 0;
     }
@@ -99,7 +137,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param precioProducto Un array con los precios de los productos
      * @return un double con el precio sin el IVA
      */
-    public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[] precioProducto){
+    public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         return 0.0;
     }
 
