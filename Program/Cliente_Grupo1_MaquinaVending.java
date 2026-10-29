@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Cliente_Grupo1_MaquinaVending{
+public class Cliente_Grupo1_MaquinaVending{//lol
 
     //CONSTANTES
     public final double IVA = 0.21;
@@ -22,7 +22,7 @@ public class Cliente_Grupo1_MaquinaVending{
     mensajeBienvenida();
     menuTipos(tipoProductos, scanner);
     menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
-    seleccioProductos(producto, contadorSeleccion, contadorCantidadProducto, scanner);
+    seleccioProductos(tipoProductos, producto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
     precioIVA = calculoPrecioFinal(precioNormal);
     mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA);
@@ -128,10 +128,31 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param scanner Pide al usuario que ingrese el numero del producto.
      * @return devuleve un número entero. 
      */
-    public static int seleccioProductos(int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
+    public static int seleccioProductos(String[] tipoProductos, int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
         System.out.println("Seleccione un producto: ");
+        //meter el codigo. 
+
+        vueltaMenu(tipoProductos, scanner);
+
+        
         
         return 0;
+    }
+    public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
+        scanner.nextLine();
+        System.out.print("¿Desea selecionar algun producto más?(Si/No) ");
+        String opcionVuelta = scanner.nextLine();
+        switch (opcionVuelta) {
+            case "Si":
+                System.out.println("Volviendo al menu de tipos");
+                menuTipos(tipoProductos, scanner);
+                break; 
+            case "No":
+                System.out.println("Se procedera al calculo del precio de la compra. ");
+                break;
+            default:
+                break;
+        }
     }
 
     /**
