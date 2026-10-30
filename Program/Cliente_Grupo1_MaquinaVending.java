@@ -14,7 +14,6 @@ public class Cliente_Grupo1_MaquinaVending{//lol
     int[] producto={};
 
     int contadorSeleccion = 0; // para contar cuántos productos diferentes
-    int contadorCantidadProducto = 0; // para saber cuántos del mismo producto
     double precioNormal = 0.0; //para almacenar el precio sin IVA
     double precioIVA = 0.0; // para el precio con iVA
     double dineroIngresado = 0.0;
@@ -22,9 +21,8 @@ public class Cliente_Grupo1_MaquinaVending{//lol
     mensajeBienvenida();
     menuTipos(tipoProductos, scanner);
     menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
-    seleccioProductos(tipoProductos, producto, contadorSeleccion, contadorCantidadProducto, scanner);
-    precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
-    precioIVA = calculoPrecioFinal(precioNormal);
+    seleccioProductos(tipoProductos, nombreProducto, contadorSeleccion,scanner);
+    precioNormal = calculoPrecio(contadorSeleccion, precioProducto );
     mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
     dineroIngresado = insertarDinero();
     devolucionVueltas(precioIVA, dineroIngresado);
@@ -128,15 +126,30 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @param scanner Pide al usuario que ingrese el numero del producto.
      * @return devuleve un número entero. 
      */
-    public static int seleccioProductos(String[] tipoProductos, int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
+    public static int seleccioProductos(String[] tipoProductos, String[][] nombreProducto, int contadorSeleccion, Scanner scanner){
         scanner.nextLine();
         System.out.print("Seleccione un producto: ");
-        //meter el codigo. 
+        String productoSeleccionado = scanner.nextLine();
+
+        //Buscar el producto selecionado.
+        String buscar = productoSeleccionado; 
+
+        int filaEncontrada = -1; 
+        int columnaEncontrada = -1; 
+
+        for (int i =0; i < nombreProducto.length; i++){
+            for (int j =0; i < nombreProducto[j].length; i++){
+                if (nombreProducto[i][j].equals(buscar)){
+                    filaEncontrada = i;
+                    columnaEncontrada = j; 
+                    break; 
+                }
+            }
+        }
+
+        // Cuenta cuantas veces se ha seleccionado un producto. 
 
         vueltaMenu(tipoProductos, scanner);
-
-        
-        
         return 0;
     }
     
@@ -148,7 +161,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @param precioProducto Un array con los precios de los productos
      * @return un double con el precio sin el IVA
      */
-    public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
+    public static double calculoPrecio(int contadorSeleccion, double[][] precioProducto){
         return 0.0;
     }
 
