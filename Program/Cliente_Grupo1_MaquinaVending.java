@@ -75,7 +75,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
                 System.out.println();
                 //Mostrar los precios
                 for (int i = 0; i < precioProducto[0].length; i ++){
-                    System.out.print(precioProducto[0][i]+"     ");
+                    System.out.print(precioProducto[0][i] +"     ");
                 }
                 break;
 
@@ -129,7 +129,8 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @return devuleve un número entero. 
      */
     public static int seleccioProductos(String[] tipoProductos, int[] producto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
-        System.out.println("Seleccione un producto: ");
+        scanner.nextLine();
+        System.out.print("Seleccione un producto: ");
         //meter el codigo. 
 
         vueltaMenu(tipoProductos, scanner);
@@ -192,12 +193,14 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * Calcula el cambio a devolver. 
      */
     public static void devolucionVueltas(double precioIVA, double dineroIngresado){
-        //
 
         //Hacer las cuentas de lo que sobra
-        //Billetes
 
-        //Monedas
+        
+
+        //Decir el cambio
+
+        System.out.println("Recoja su cambio: ");
 
     }
 
@@ -212,13 +215,14 @@ public class Cliente_Grupo1_MaquinaVending{//lol
         scanner.nextLine();
         System.out.print("¿Desea selecionar algun producto más?(Si/No) ");
         String opcionVuelta = scanner.nextLine();
+        
         switch (opcionVuelta) {
             case "Si":
                 System.out.println("Volviendo al menu de tipos");
-                menuTipos(tipoProductos, scanner);
+                menuTipos(tipoProductos, scanner); 
                 break; 
             case "No":
-                System.out.println("Se procedera a mostrar el resumen de compra ");
+                System.out.println("Se procedera a mostrar el resumen de compra");
                 break;
             default:
                 break;
