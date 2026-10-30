@@ -176,7 +176,6 @@ public class Cliente_Grupo1_MaquinaVending{//lol
         System.out.println("                 IVA: " + IVA );
         System.out.println("------------------------------");
         System.out.println("               Total: " + precioIVA);
-    
 
     } 
 
@@ -219,7 +218,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
                 menuTipos(tipoProductos, scanner);
                 break; 
             case "No":
-                System.out.println("Se procedera al calculo del precio de la compra. ");
+                System.out.println("Se procedera a mostrar el resumen de compra ");
                 break;
             default:
                 break;
