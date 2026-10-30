@@ -3,7 +3,7 @@ import java.util.*;
 public class Cliente_Grupo1_MaquinaVending{//lol
 
     //CONSTANTES
-    public final double IVA = 0.21;
+    public static final double IVA = 0.21;
 
     public static void main(String[] args){
     Scanner scanner = new Scanner (System.in);
@@ -25,7 +25,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
     seleccioProductos(tipoProductos, producto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
     precioIVA = calculoPrecioFinal(precioNormal);
-    mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA);
+    mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
     dineroIngresado = insertarDinero();
     devolucionVueltas(precioIVA, dineroIngresado);
     mensajeFinal();
@@ -166,8 +166,17 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @param contadorSeleccion Cuenta cuantos productos diferentes
      * @param precioNormal El importe sin iVA
      * @param precioIVAl El importe total incluyendo el IVA
+     * @param IVA Constante del IVA
      */
-    public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA){
+    public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA, double IVA){
+        System.out.println();
+        System.out.println("-----RESUMEN DE COMPRA-----");
+        System.out.println("Articulos adquiridos: " + contadorSeleccion);
+        System.out.println("            Subtotal: " + precioNormal);
+        System.out.println("                 IVA: " + IVA );
+        System.out.println("------------------------------");
+        System.out.println("               Total: " + precioIVA);
+    
 
     } 
 
@@ -184,6 +193,12 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * Calcula el cambio a devolver. 
      */
     public static void devolucionVueltas(double precioIVA, double dineroIngresado){
+        //
+
+        //Hacer las cuentas de lo que sobra
+        //Billetes
+
+        //Monedas
 
     }
 
