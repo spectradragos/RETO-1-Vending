@@ -87,7 +87,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
                 System.out.println();
                 //Mostrar los precios
                 for (int i = 0; i < precioProducto[1].length; i ++){
-                    System.out.print(precioProducto[1][i]+" ");
+                    System.out.print(precioProducto[1][i]+"     ");
                 }
                 break;
 
@@ -99,19 +99,19 @@ public class Cliente_Grupo1_MaquinaVending{//lol
                 System.out.println();
                 //Mostrar los precios
                 for (int i = 0; i < precioProducto[2].length; i ++){
-                    System.out.print(precioProducto[2][i]+" ");
+                    System.out.print(precioProducto[2][i]+"     ");
                 }
                 break;
 
             case 4: 
                 //Mostrar los productos
                 for (int i = 0; i < nombreProducto[3].length; i ++){
-                    System.out.print(nombreProducto[3][i]+" ");
+                    System.out.print(nombreProducto[3][i]+"     ");
                 };
                 System.out.println();
                //Mostrar losprecios 
                 for (int i = 0; i < precioProducto[3].length; i ++){
-                    System.out.print(precioProducto[3][i]+" ");
+                    System.out.print(precioProducto[3][i]+"     ");
                 }
                 break;
         }
@@ -138,22 +138,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
         
         return 0;
     }
-    public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
-        scanner.nextLine();
-        System.out.print("¿Desea selecionar algun producto más?(Si/No) ");
-        String opcionVuelta = scanner.nextLine();
-        switch (opcionVuelta) {
-            case "Si":
-                System.out.println("Volviendo al menu de tipos");
-                menuTipos(tipoProductos, scanner);
-                break; 
-            case "No":
-                System.out.println("Se procedera al calculo del precio de la compra. ");
-                break;
-            default:
-                break;
-        }
-    }
+    
 
     /**
      * Calcula el precio total sin IVA
@@ -208,5 +193,21 @@ public class Cliente_Grupo1_MaquinaVending{//lol
     public static void mensajeFinal(){
         System.out.println("Muchas gracias por su compra y hasta pronto!.");
 
+    }
+    public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
+        scanner.nextLine();
+        System.out.print("¿Desea selecionar algun producto más?(Si/No) ");
+        String opcionVuelta = scanner.nextLine();
+        switch (opcionVuelta) {
+            case "Si":
+                System.out.println("Volviendo al menu de tipos");
+                menuTipos(tipoProductos, scanner);
+                break; 
+            case "No":
+                System.out.println("Se procedera al calculo del precio de la compra. ");
+                break;
+            default:
+                break;
+        }
     }
 }

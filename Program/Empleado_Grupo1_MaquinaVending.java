@@ -81,7 +81,8 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.print("Selecciona una opcion del 1 al 4: ");
         
         int opcion = scanner.nextInt(); 
-
+        
+        // A donde se dirigira en caso de elegir una opcion u otra. 
         switch (opcion){
             case 1:
                 anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto, scanner);
@@ -111,12 +112,18 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param scanner Lugar donde se guardara la información introducida. 
      */
     public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
-        //primero algo sencillo. 
         System.out.println();
         scanner.nextLine(); //limpia el scanner.
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
-        System.out.print("Introduzca el tipo del producto: ");
-        String tipoAñadido= scanner.nextLine();
+        System.out.println("Aqui se podra añadir un nuevo producto a la lista de los productos.");
+        System.out.println("A continuación, se le mostara el listado de los tipos de porductos de los que disponemos.");
+        
+        //Mostrar lo tipos.
+         for (int i = 0; i < tipoProductos.length; i++){
+            System.out.println(tipoProductos[i]);
+        }
+        System.out.print("Introduzca el tipo del nuevo producto: ");
+        String tipoIndex= scanner.nextLine();
 
         //Mostrar los productos que hay.
 
@@ -129,12 +136,16 @@ public class Empleado_Grupo1_MaquinaVending{
         scanner.nextLine();
 
         //Hacer un nuevo array para añadir los nuevos productos y precios.
+
+        //Copiar los arrays 
         
-        //String [][] nombreNuevo = (String[][] nombreProducto.length +1);  
+          
         
         System.out.println("Exito! Se ha introducido correctamente. ");
         //System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
         System.out.println();
+
+        //Preguntar si quiere ver la lista modificada.
 
         //Metodo para volver al menu. 
         vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
