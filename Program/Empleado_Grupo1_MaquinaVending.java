@@ -116,16 +116,24 @@ public class Empleado_Grupo1_MaquinaVending{
         scanner.nextLine(); //limpia el scanner.
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
         System.out.print("Introduzca el tipo del producto: ");
-        String tipoNuevo= scanner.nextLine();
+        String tipoAñadido= scanner.nextLine();
 
+        //Mostrar los productos que hay.
+
+        //Pedir los datos para el nuevo producto, junto a su precio.
         System.out.print("Introduzca el nombre del producto: ");
-        String nombreNuevo= scanner.nextLine();
+        String nombreAñadido= scanner.nextLine();
 
         System.out.print("Introduzca el precio: ");
-        Double precioNuevo= scanner.nextDouble();
+        Double precioAñadido= scanner.nextDouble();
         scanner.nextLine();
 
-        System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
+        //Hacer un nuevo array para añadir los nuevos productos y precios.
+        
+        //String [][] nombreNuevo = (String[][] nombreProducto.length +1);  
+        
+        System.out.println("Exito! Se ha introducido correctamente. ");
+        //System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
         System.out.println();
 
         //Metodo para volver al menu. 
