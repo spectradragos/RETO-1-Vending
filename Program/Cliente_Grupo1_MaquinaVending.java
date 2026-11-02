@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Cliente_Grupo1_MaquinaVending{//lol
+public class Cliente_Grupo1_MaquinaVending{
 
     //CONSTANTES
     public static final double IVA = 0.21;
@@ -22,9 +22,9 @@ public class Cliente_Grupo1_MaquinaVending{//lol
     mensajeBienvenida();
     menuTipos(tipoProductos, scanner);
     menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
-    seleccioProductos(tipoProductos, contadorSeleccion, contadorCantidadProducto, scanner);
+    seleccioProductos(tipoProductos,nombreProducto, contadorSeleccion, contadorCantidadProducto, scanner);
     precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
-    precioIVA = calculoPrecioFinal(precioNormal);
+    precioIVA = calculoPrecioFinal(precioNormal, IVA);
     mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
     dineroIngresado = insertarDinero(dineroIngresado, scanner);
     devolucionVueltas(precioIVA, dineroIngresado);
@@ -128,21 +128,42 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @param scanner Pide al usuario que ingrese el numero del producto.
      * @return devuleve un número entero. 
      */
-    public static String seleccioProductos(String[] tipoProductos, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
+    public static int seleccioProductos(String[] tipoProductos, String [][] nombreProducto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
         scanner.nextLine();
+        //Seleccionar el producto 
         System.out.print("Seleccione un producto: ");
         String productoSeleccionado = scanner.nextLine();
-
+       
         //Buscar el producto selecionado.
-         
-        
+        boolean encontrado = false; 
+        int filaEncontrada = -1;
+        int columnaEncontrada = -1;
+
+        for (int i = 0; i < nombreProducto.length; i++) {
+            for (int j = 0; j < nombreProducto[i].length; j++) {
+                // Comparamos usando .equals()
+                if (nombreProducto[i][j].equals(productoSeleccionado)) {
+                    encontrado = true;
+                    filaEncontrada = i;
+                    columnaEncontrada = j;
+                    break; // Rompe el bucle interno
+                }
+            } if (encontrado) break; // Rompe el bucle externo
+        }
+
         // Sumar al contador del producto
-        
+        if (encontrado) {
+            contadorSeleccion++; 
+        } else {
+            System.out.print("Producto no encontrado. Pulse Enter para continuar.");
+        }
+
         //que tendria que devolver 
-        //vueltaMenu(tipoProductos, scanner);
-        return productoSeleccionado;
+        vueltaMenu(tipoProductos, scanner);
+        return contadorSeleccion;
         
     }
+
     
 
     /**
@@ -153,7 +174,10 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @return un double con el precio sin el IVA
      */
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
-        return 0.0;
+        // Calcular el precio sin IVA
+        double precioNormal = 10.0;
+        //
+        return precioNormal;
     }
 
     /**
@@ -161,9 +185,9 @@ public class Cliente_Grupo1_MaquinaVending{//lol
      * @param precioNormal El importe sin iVA
      * @return Un double con el precio con IVA
      */
-    public static double calculoPrecioFinal(double precioNomal){
-        
-        return 0.0; 
+    public static double calculoPrecioFinal(double precioNormal, double IVA){
+        double precioIVA = precioNormal * (1 + IVA); 
+        return precioIVA; 
     }
 
     /**
@@ -178,7 +202,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
         System.out.println("-----RESUMEN DE COMPRA-----");
         System.out.println("Articulos adquiridos: " + contadorSeleccion);
         System.out.println("            Subtotal: " + precioNormal);
-        System.out.println("                 IVA: " + IVA );
+        System.out.println("                 IVA: " + (IVA*100) + "%" );
         System.out.println("------------------------------");
         System.out.println("               Total: " + precioIVA);
 
@@ -210,7 +234,7 @@ public class Cliente_Grupo1_MaquinaVending{//lol
         }
 
         //Decir el cambio
-        System.out.println("Recoja su cambio: ");
+        System.out.println("Su cambio: ");
 
     }
 
@@ -223,9 +247,15 @@ public class Cliente_Grupo1_MaquinaVending{//lol
 
     }
 
-    /*public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
+    
+
+    public static void calcularVueltas(){
+        //Hace el calculo de las vueltas
+    }
+
+    public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
         scanner.nextLine();
-        System.out.print("¿Desea selecionar algun producto más?(Si/No) ");
+        System.out.print("¿Desea volver a seleccionar un producto ?(Si/No) ");
         String opcionVuelta = scanner.nextLine();
         
         switch (opcionVuelta) {
@@ -238,71 +268,6 @@ public class Cliente_Grupo1_MaquinaVending{//lol
                 break;
             default:
                 break;
-        }
-    }*/
-
-    public static void calcularVueltas(){
-        System.out.println();
-        double cambio = 3.88;
-        // 200 euros
-
-        // 100 euros
-
-        // 50 euros 
-
-        // 20 euros 
-
-        // 10 euros 
-
-        // 5 euros
-
-        // 2 euros
-        if ((cambio / 2) >= 1) {
-            int doseuro = (int) (cambio / 2);
-            cambio = cambio - doseuro * 2;
-            System.out.println(doseuro + "moneda(s) de 2€");
-        }
-        // 1 euro
-        if ((cambio / 1) >= 1) {
-            int uneuro = (int) (cambio / 1); 
-            cambio = cambio - uneuro * 1;
-            System.out.println(uneuro + "moneda(s) de 1€");
-        }
-        // 50 centimos
-        if ((cambio / 0.5) >= 1) {
-            int cincuetacts = (int) (cambio / 0.5);
-            cambio = cambio - cincuetacts * 0.5;
-            System.out.println(cincuetacts + "moneda(s) de 50cts");
-        }
-        // 20 centimos
-        if ((cambio / 0.2) >= 1) {
-            int veintects = (int) (cambio / 0.2);
-            cambio = cambio - veintects * 0.2;
-            System.out.println(veintects + "moneda(s) de 20cts");
-        }
-        // 10 centimos
-        if ((cambio / 0.1) >= 1) {
-            int diezcts = (int) (cambio / 0.1);
-            cambio = cambio - diezcts * 0.1;
-            System.out.println(diezcts + "moneda(s) de 10cts");
-        }
-        // 5 centimos
-        if ((cambio / 0.05) >= 1) {
-            int cincocts = (int) (cambio / 0.05);
-            cambio = cambio - cincocts * 0.05;
-            System.out.println(cincocts + "moneda(s) de 5cts");
-        }
-        // 2 centimos
-        if ((cambio / 0.02) >= 1) {
-            int doscts = (int) (cambio / 0.02);
-            cambio = cambio - doscts * 0.02;
-            System.out.println(doscts + "moneda(s) de 2cts");
-        }
-        // 1 centimo
-        if ((cambio / 0.01) >= 1) {
-            int uncts = (int) (cambio / 0.01);
-            cambio = cambio - uncts * 0.01; // Corregido el uncts*2 del código original
-            System.out.println(uncts + "moneda(s) de 1cts");
         }
     }
 }
