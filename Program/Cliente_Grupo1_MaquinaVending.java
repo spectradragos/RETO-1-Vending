@@ -240,7 +240,7 @@ public class Cliente_Grupo1_MaquinaVending{
     }
 
     /**
-     * Calcula el cambio a devolver. 
+     * Muestra el cambio. 
      */
     public static void devolucionVueltas(double precioIVA, double dineroIngresado){
         if (dineroIngresado > precioIVA){
@@ -268,11 +268,13 @@ public class Cliente_Grupo1_MaquinaVending{
 
     
 
-    public static double calcularVueltas(){
+    /**
+     *  Calcula el cambio. 
+     */public static double calcularVueltas(){
         //Hace el calculo de las vueltas
         //Billetes --> 200€, 100€, 50€, 20€, 10€ y 5€
         //Monedas --> 2€, 1€, 0.50€, 0.20€, 0.10€, 0.05€, 0.02€, 0.01€
-        
+
         return 0.0; 
     }
 
