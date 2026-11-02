@@ -157,7 +157,7 @@ public class Cliente_Grupo1_MaquinaVending{
         // Sumar al contador del producto
         if (encontrado) {
             System.out.println("El producto ha sido seleccionado correctamente.");
-            contadorSeleccion++; 
+            contadorSeleccion = contadorCantidadProducto; 
         } else {
             System.out.println("Producto no encontrado.");
         }
@@ -175,7 +175,7 @@ public class Cliente_Grupo1_MaquinaVending{
         }*/
 
         //que tendria que devolver 
-        vueltaMenu(tipoProductos, scanner);
+       // vueltaMenu(tipoProductos, scanner);
         return contadorSeleccion;
         
     }
@@ -221,7 +221,7 @@ public class Cliente_Grupo1_MaquinaVending{
         System.out.println("-----RESUMEN DE COMPRA-----");
         System.out.println("Articulos adquiridos: " + contadorSeleccion);
         System.out.println("            Subtotal: " + precioNormal);
-        System.out.println("                 IVA: " + (IVA*100) + "%" );
+        System.out.println("                 IVA: " + (IVA*100) + "%");
         System.out.println("------------------------------");
         System.out.println("               Total: " + precioIVA);
 
