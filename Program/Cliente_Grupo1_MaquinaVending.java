@@ -138,6 +138,8 @@ public class Cliente_Grupo1_MaquinaVending{
         boolean encontrado = false; 
         int filaEncontrada = -1;
         int columnaEncontrada = -1;
+        contadorSeleccion = 0;
+        contadorCantidadProducto = 0;  
 
         for (int i = 0; i < nombreProducto.length; i++) {
             for (int j = 0; j < nombreProducto[i].length; j++) {
@@ -146,6 +148,7 @@ public class Cliente_Grupo1_MaquinaVending{
                     encontrado = true;
                     filaEncontrada = i;
                     columnaEncontrada = j;
+                    contadorCantidadProducto++;
                     break; // Rompe el bucle interno
                 }
             } if (encontrado) break; // Rompe el bucle externo
@@ -153,10 +156,23 @@ public class Cliente_Grupo1_MaquinaVending{
 
         // Sumar al contador del producto
         if (encontrado) {
+            System.out.println("El producto ha sido seleccionado correctamente.");
             contadorSeleccion++; 
         } else {
-            System.out.print("Producto no encontrado. Pulse Enter para continuar.");
+            System.out.println("Producto no encontrado.");
         }
+
+
+        /*for (int i = 0; i < nombreProducto.length; i++) {
+            for (int j = 0; j < nombreProducto[i].length; j++) {
+                // Comparamos usando .equals()
+                if (nombreProducto[i][j].equals(productoSeleccionado)) {
+                    contadorSeleccion++;
+            
+                    break; // Rompe el bucle interno
+                }
+            } 
+        }*/
 
         //que tendria que devolver 
         vueltaMenu(tipoProductos, scanner);
@@ -175,7 +191,10 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         // Calcular el precio sin IVA
-        double precioNormal = 10.0;
+        
+        
+        
+        double precioNormal = 100.0;
         //
         return precioNormal;
     }
@@ -255,18 +274,16 @@ public class Cliente_Grupo1_MaquinaVending{
 
     public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
         scanner.nextLine();
-        System.out.print("¿Desea volver a seleccionar un producto ?(Si/No) ");
+        System.out.print("¿Desea volver a seleccionar un producto?(Si/No): ");
         String opcionVuelta = scanner.nextLine();
         
         switch (opcionVuelta) {
             case "Si":
-                System.out.println("Volviendo al menu de tipos");
+                System.out.println("Volviendo al menu de tipos...");
                 menuTipos(tipoProductos, scanner); 
                 break; 
-            case "No":
-                System.out.println("Se procedera a mostrar el resumen de compra");
-                break;
             default:
+                System.out.println("Se procedera a mostrar el resumen de compra");
                 break;
         }
     }
