@@ -6,10 +6,10 @@ public class Cliente_Grupo1_MaquinaVending{
     public static final double IVA = 0.21;
 
     //VARIABLES GLOBALES
-    //guardar la posicion del producto en la fila
+    //guarda la posicion del producto en la fila
     public static int filaEncontrada = -1; 
-    
-    //guardar la posicion del producto en la columna
+
+    //guarda la posicion del producto en la columna
     public static int columnaEncontrada = -1; 
 
     /** 
