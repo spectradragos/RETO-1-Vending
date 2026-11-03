@@ -5,6 +5,10 @@ public class Cliente_Grupo1_MaquinaVending{
     //CONSTANTES
     public static final double IVA = 0.21;
 
+    //VARIABLES GLOBALES
+    public static int filaEncontrada = -1; //guardar la posicion del producto en la fila
+    public static int columnaEncontrada = -1; //guardar la posicion del producto en la columna
+
     public static void main(String[] args){
         Scanner scanner = new Scanner (System.in);
 
@@ -74,7 +78,8 @@ public class Cliente_Grupo1_MaquinaVending{
         for (int i = 0; i < tipoProductos.length; i++){
             System.out.println(tipoProductos[i]);
         }
-        System.out.print("Seleccione un tipo de producto: ");    
+        System.out.print("Seleccione un tipo de producto: "); 
+        System.out.println();   
     }
 
     /**
@@ -144,9 +149,9 @@ public class Cliente_Grupo1_MaquinaVending{
     /**
      * Pide al cliente que selecciones un producto
      * @param producto Array con la posicion de los productos.
-     * @param contadorSeleccion Cuenta cuantos productos diferentes 
+     * @param contadorSeleccion Cuenta cuantos productos diferentes se han seleccionado
      * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado
-     * @param scanner Pide al usuario que ingrese el numero del producto.
+     * @param scanner Pide al usuario que ingrese el nombre del producto.
      * @return devuleve un número entero. 
      */
     public static int seleccioProductos(String[] tipoProductos, String [][] nombreProducto, int contadorSeleccion, int contadorCantidadProducto, Scanner scanner){
@@ -157,10 +162,8 @@ public class Cliente_Grupo1_MaquinaVending{
        
         //Buscar el producto selecionado.
         boolean encontrado = false; 
-        int filaEncontrada = -1;
-        int columnaEncontrada = -1;
-        contadorSeleccion = 0;
-        contadorCantidadProducto = 0;  
+        filaEncontrada = -1;
+        columnaEncontrada = -1;  
 
         for (int i = 0; i < nombreProducto.length; i++) {
             for (int j = 0; j < nombreProducto[i].length; j++) {
@@ -169,7 +172,6 @@ public class Cliente_Grupo1_MaquinaVending{
                     encontrado = true;
                     filaEncontrada = i;
                     columnaEncontrada = j;
-                    contadorCantidadProducto++;
                     break; // Rompe el bucle interno
                 }
             } if (encontrado) break; // Rompe el bucle externo
@@ -178,11 +180,10 @@ public class Cliente_Grupo1_MaquinaVending{
         // Sumar al contador del producto
         if (encontrado) {
             System.out.println("El producto ha sido seleccionado correctamente.");
-            contadorSeleccion = contadorCantidadProducto; 
+            contadorSeleccion++; 
         } else {
             System.out.println("Producto no encontrado.");
         }
-
         return contadorSeleccion;
         
     }
@@ -198,7 +199,8 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         // Calcular el precio sin IVA
-        double precioNormal = 20.0;
+        double precioNormal = 0.0;
+        
 
     
         return precioNormal;
@@ -309,6 +311,7 @@ public class Cliente_Grupo1_MaquinaVending{
         String opcionVuelta = scanner.nextLine();
         if (opcionVuelta.equals("Si")){
             System.out.println("Volviendo al menu de tipos...");
+            System.out.println();
         }else{
             System.out.println("Se procedera a mostrar el resumen de compra. ");
         }
