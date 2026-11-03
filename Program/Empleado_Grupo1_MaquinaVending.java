@@ -147,10 +147,12 @@ public class Empleado_Grupo1_MaquinaVending{
         scanner.nextLine();
 
         //Hacer un nuevo array para añadir los nuevos productos y precios.
-
-        //Copiar los arrays 
+        //Productos
         
-          
+
+        //Precios
+
+    
         
         System.out.println("Exito! Se ha introducido correctamente. ");
         //System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
@@ -211,9 +213,21 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println();
         scanner.nextLine();
         System.out.println("----ELIMINAR UN PRODUCTO----");
-        System.out.print("¿Que producto quieres eliminar?");
-        //codigo
+        System.out.print("¿Que producto quieres eliminar?: ");
+        String productoEliminado = scanner.nextLine();
 
+        //Buscar y reemplazar el producto.
+        for (int i = 0; i< nombreProducto.length; i++){
+            for (int j = 0; j< nombreProducto[i].length; j++){
+                if(nombreProducto[i][j].equals(productoEliminado)){
+                    nombreProducto[i][j] = null;
+                    break;
+                }
+            }
+        }
+
+        //Muestra la lista nueva. 
+        
         //Metodo para volver al menu. 
         vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
     }
