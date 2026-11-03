@@ -6,32 +6,51 @@ public class Cliente_Grupo1_MaquinaVending{
     public static final double IVA = 0.21;
 
     public static void main(String[] args){
-    Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner (System.in);
 
-    String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
-    String[][] nombreProducto ={{"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-    double[][] precioProducto ={{2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, {1.00, 2.50}, {}, {}};
-    //int[] producto={};
+        String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
-    int contadorSeleccion = 0; // para contar cuántos productos diferentes
-    int contadorCantidadProducto = 0; // para saber cuántos del mismo producto
-    double precioNormal = 0.0; //para almacenar el precio sin IVA
-    double precioIVA = 0.0; // para el precio con iVA
-    double dineroIngresado = 0.0;
+        String[][] nombreProducto ={
+            {"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, 
+            {"Agua", "Coca-Cola"}, 
+            {"Powerbank", "Cable Tipo C"}, 
+            {"Pokemon", "Magic"}};
 
-    mensajeBienvenida();
-    menuTipos(tipoProductos, scanner);
-    menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
-    seleccioProductos(tipoProductos,nombreProducto, contadorSeleccion, contadorCantidadProducto, scanner);
-    precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
-    precioIVA = calculoPrecioFinal(precioNormal, IVA);
-    mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
-    dineroIngresado = insertarDinero(dineroIngresado, scanner);
-    devolucionVueltas(precioIVA, dineroIngresado);
-    mensajeFinal();
+        double[][] precioProducto ={
+            {2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, 
+            {1.00, 2.50}, 
+            {}, 
+            {}};
 
-    scanner.close();
+        
+        //Bucle para volver a empezar desde cero , en el cual se reiniciara cuando pase al siguiente usuario.  
+        do {
+            int contadorSeleccion = 0; // para contar cuántos productos diferentes
+            int contadorCantidadProducto = 0; // para saber cuántos del mismo producto
+            double precioNormal = 0.0; //para almacenar el precio sin IVA
+            double precioIVA = 0.0; // para el precio con iVA
+            double dineroIngresado = 0.0;
+            String opcionVuelta; 
 
+        
+            //Bucle para volver a seleccionar productos.
+            mensajeBienvenida(); 
+            do{
+                menuTipos(tipoProductos, scanner);
+                menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
+                contadorSeleccion = seleccioProductos(tipoProductos,nombreProducto, contadorSeleccion, contadorCantidadProducto, scanner);
+                opcionVuelta = vueltaMenu(scanner);  
+            }while(opcionVuelta.equals("Si"));
+            
+            precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
+            precioIVA = calculoPrecioFinal(precioNormal, IVA);
+            mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
+            dineroIngresado = insertarDinero(dineroIngresado, scanner);
+            devolucionVueltas(precioIVA, dineroIngresado);
+            mensajeFinal();
+
+            scanner.close();
+            }while(true);
     }
 
 
@@ -39,7 +58,9 @@ public class Cliente_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida al cliente.
      */
     public static void mensajeBienvenida(){
-        System.out.println("Bienvenido a Sestao-Vending.");
+        System.out.println("=================================");
+        System.out.println("   Bienvenido a Sestao-Vending   ");
+        System.out.println("=================================");
         System.out.println();
     }
 
@@ -162,20 +183,6 @@ public class Cliente_Grupo1_MaquinaVending{
             System.out.println("Producto no encontrado.");
         }
 
-
-        /*for (int i = 0; i < nombreProducto.length; i++) {
-            for (int j = 0; j < nombreProducto[i].length; j++) {
-                // Comparamos usando .equals()
-                if (nombreProducto[i][j].equals(productoSeleccionado)) {
-                    contadorSeleccion++;
-            
-                    break; // Rompe el bucle interno
-                }
-            } 
-        }*/
-
-        //que tendria que devolver 
-       // vueltaMenu(tipoProductos, scanner);
         return contadorSeleccion;
         
     }
@@ -191,11 +198,9 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         // Calcular el precio sin IVA
-        
-        
-        
-        double precioNormal = 100.0;
-        //
+        double precioNormal = 20.0;
+
+    
         return precioNormal;
     }
 
@@ -218,12 +223,14 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA, double IVA){
         System.out.println();
-        System.out.println("-----RESUMEN DE COMPRA-----");
-        System.out.println("Articulos adquiridos: " + contadorSeleccion);
-        System.out.println("            Subtotal: " + precioNormal);
-        System.out.println("                 IVA: " + (IVA*100) + "%");
-        System.out.println("------------------------------");
-        System.out.println("               Total: " + precioIVA);
+        System.out.println("=================================");
+        System.out.println("        RESUMEN DE COMPRA        ");
+        System.out.println("=================================");
+        System.out.println("  Articulos adquiridos: " + contadorSeleccion);
+        System.out.println("              Subtotal: " + precioNormal);
+        System.out.println("                   IVA: " + (IVA*100) + "%");
+        System.out.println("---------------------------------");
+        System.out.println("                 Total: " + precioIVA);
 
     } 
 
@@ -244,17 +251,16 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static void devolucionVueltas(double precioIVA, double dineroIngresado){
         if (dineroIngresado > precioIVA){
-            calcularVueltas();
+            double cambio = dineroIngresado-precioIVA;
+            System.out.println("Su cambio: "+ cambio);
+            System.out.println("~~ Desglose de monedas ~~");
+            calcularVueltas(cambio);
         } else if (dineroIngresado == precioIVA){
-            //continuar con el mensaje de despedida
+            System.out.println("Importe exacto!. No hay cambios a devolver.");
         } else {
             // Hacer la cuenta de lo que falta y volver a pedir que ingrese el dinero. 
 
         }
-
-        //Decir el cambio
-        System.out.println("Su cambio: ");
-
     }
 
     /**
@@ -269,28 +275,43 @@ public class Cliente_Grupo1_MaquinaVending{
     
 
     /**
-     *  Calcula el cambio. 
-     */public static double calcularVueltas(){
-        //Hace el calculo de las vueltas
-        //Billetes --> 200€, 100€, 50€, 20€, 10€ y 5€
-        //Monedas --> 2€, 1€, 0.50€, 0.20€, 0.10€, 0.05€, 0.02€, 0.01€
+     *  Calcula el cambio a devolver. 
+     * @param cambio Hace referencia al dinero que sobra. 
+     */
+    public static void calcularVueltas(double cambio){
+        //Definir los billetes y las monedas
+        int[] valoresMonetarios={20000, 10000, 5000, 2000, 1000, 200, 100, 50, 20, 10, 5, 2, 1}; 
+        String[] denominacionMonetaria= {"Billete de 200","Billete de 100","Billete de 50","Billete de 20","Billete de 10","Billete de 5",
+        "Moneda de 2","Moneda de 1","Moneda de 0.50","Moneda de 0.20","Moneda de 0.10","Moneda de 0.05","Moneda de 0.02","Moneda de 0.01"}; 
 
-        return 0.0; 
+        //Convertir lo centimos a numero enteros. 
+       
+        int centimosRestantes = (int)Math.round(cambio*100); //Math.round redondea los numeros , ya se float o double, a numeros enteros. 
+
+        //Desglose del cambio
+        for (int i = 0; i < valoresMonetarios.length; i++){
+            if (centimosRestantes >= valoresMonetarios[i]){
+                int cantidad = centimosRestantes / valoresMonetarios[i]; // Unidades de billetes o monedas ya desglosadas
+                centimosRestantes = centimosRestantes % valoresMonetarios[i]; // Unidades que aun falta por desglosar. 
+                System.out.println(denominacionMonetaria[i]+": "+ cantidad);
+            }
+        }
     }
 
-    public static void vueltaMenu(String[] tipoProductos, Scanner scanner){
+    /**
+     * Pregunta al usuario si quiere volver a seleccionar productos o finalizar con la compra. 
+     * @param scanner Respuesta del usuario. 
+     * @return
+     */
+    public static String vueltaMenu(Scanner scanner){
         scanner.nextLine();
         System.out.print("¿Desea volver a seleccionar un producto?(Si/No): ");
         String opcionVuelta = scanner.nextLine();
-        
-        switch (opcionVuelta) {
-            case "Si":
-                System.out.println("Volviendo al menu de tipos...");
-                menuTipos(tipoProductos, scanner); 
-                break; 
-            default:
-                System.out.println("Se procedera a mostrar el resumen de compra");
-                break;
+        if (opcionVuelta.equals("Si")){
+            System.out.println("Volviendo al menu de tipos...");
+        }else{
+            System.out.println("Se procedera a mostrar el resumen de compra. ");
         }
+        return opcionVuelta;
     }
 }
