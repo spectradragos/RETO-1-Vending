@@ -191,7 +191,8 @@ public class Cliente_Grupo1_MaquinaVending{
 
         // Sumar al contador del producto
         if (encontrado) {
-            System.out.print("El producto ha sido seleccionado correctamente.");
+            System.out.println("El producto ha sido seleccionado correctamente.");
+             System.out.print("Pulse [ENTER] para continuar ");
             contadorSeleccion++; 
         } else {
             System.out.println("Producto no encontrado.");

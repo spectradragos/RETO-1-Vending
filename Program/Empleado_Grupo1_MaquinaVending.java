@@ -22,6 +22,8 @@ public class Empleado_Grupo1_MaquinaVending{
             {1.00, 2.50, 2.50, 1.20}, 
             {15.00, 3.00, 5.00, 20.00}, 
             {3.99, 3.50, 3.50, 4.99}};
+
+            
         String usuario = "";
         String contraseña = "";
 
