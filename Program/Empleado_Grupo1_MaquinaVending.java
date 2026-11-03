@@ -6,6 +6,11 @@ public class Empleado_Grupo1_MaquinaVending{
     public static final String CONTRASEÑA_CORRECTA = "Admin";
 
     
+    
+    /** 
+     * Metodo principal del codigo. 
+     * @param args Los argumentos del metodo main, los cuales en este caso no se ha establecido ninguno. 
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
@@ -45,8 +50,11 @@ public class Empleado_Grupo1_MaquinaVending{
      * Muestra un mensaje de bienvenida.
      */
     public static void mensajeBienvenida(){
-            System.out.println("Bienvenido a la administración de la maquina. Debera iniciar sesion para poder continuar.");
-            System.out.println();
+        System.out.println("======================================");
+        System.out.println("     Administración de la maquina.    ");
+        System.out.println("======================================");
+        System.out.println();
+        System.out.println("Inicie sesion para continuar");
 
     }
 
@@ -58,7 +66,9 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param scanner Lugar donde se guardara la información introducida. 
      */
     public static boolean inicioSesion(String usuario, String contraseña, Scanner scanner ){
+        System.out.println();
         System.out.println("----INICIO DE SESION----");
+        System.out.println(); 
         System.out.print("Introduzca el usuario: ");
         String user = scanner.nextLine();
         System.out.print("Introduzca la contraseña: ");
@@ -227,7 +237,7 @@ public class Empleado_Grupo1_MaquinaVending{
         }
 
         //Muestra la lista nueva. 
-        
+
         //Metodo para volver al menu. 
         vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
     }
