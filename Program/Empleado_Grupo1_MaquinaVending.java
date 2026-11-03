@@ -9,10 +9,19 @@ public class Empleado_Grupo1_MaquinaVending{
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
-        String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
-        String[][] nombreProducto ={{"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, {"Agua", "Coca-Cola"}, {"Powerbank", "Cable Tipo C"}, {"Pokemon", "Magic"}};
-        double[][] precioProducto ={{2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, {1.00, 2.50}, {}, {}};
+       String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
+        String[][] nombreProducto ={
+            {"Kit-Kat", "Jumpers", "Filipinos","Doritos"}, 
+            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio"}, 
+            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico"}, 
+            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!"}};
+
+        double[][] precioProducto ={
+            {1.20, 1.20, 1.10, 1.50}, 
+            {1.00, 2.50, 2.50, 1.20}, 
+            {15.00, 3.00, 5.00, 20.00}, 
+            {3.99, 3.50, 3.50, 4.99}};
         String usuario = "";
         String contraseña = "";
 
