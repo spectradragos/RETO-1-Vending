@@ -15,16 +15,16 @@ public class Cliente_Grupo1_MaquinaVending{
         String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
         String[][] nombreProducto ={
-            {"Haribo", "Kit-Kat", "Jumpers", "Donetes", "Filipinos","Doritos"}, 
-            {"Agua", "Coca-Cola"}, 
-            {"Powerbank", "Cable Tipo C"}, 
-            {"Pokemon", "Magic"}};
+            {"Kit-Kat", "Jumpers", "Filipinos","Doritos"}, 
+            {"Agua", "Coca-Cola", "Kas Limon", "Café Frio"}, 
+            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico"}, 
+            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!"}};
 
         double[][] precioProducto ={
-            {2.00, 1.20, 1.20, 1.00, 1.10, 1.50 }, 
-            {1.00, 2.50}, 
-            {}, 
-            {}};
+            {1.20, 1.20, 1.10, 1.50}, 
+            {1.00, 2.50, 2.50, 1.20}, 
+            {15.00, 3.00, 5.00, 20.00}, 
+            {3.99, 3.50, 3.50, 4.99}};
 
         
         //Bucle para volver a empezar desde cero , en el cual se reiniciara cuando pase al siguiente usuario.  
@@ -38,34 +38,44 @@ public class Cliente_Grupo1_MaquinaVending{
 
         
             //Bucle para volver a seleccionar productos.
-            mensajeBienvenida(); 
+            mensajeBienvenida(scanner); 
             do{
                 menuTipos(tipoProductos, scanner);
                 menuProductos(tipoProductos, nombreProducto, precioProducto,scanner);
                 contadorSeleccion = seleccioProductos(tipoProductos,nombreProducto, contadorSeleccion, contadorCantidadProducto, scanner);
+                
+                // Si se encuentra el producto de calcula el precio. 
+                if (filaEncontrada != -1){ 
+                    contadorCantidadProducto = 1; 
+                    precioNormal += calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
+                }
                 opcionVuelta = vueltaMenu(scanner);  
-            }while(opcionVuelta.equals("Si"));
+            } while (opcionVuelta.equals("Si"));
             
-            precioNormal = calculoPrecio(contadorSeleccion, contadorCantidadProducto, precioProducto);
-            precioIVA = calculoPrecioFinal(precioNormal, IVA);
-            mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
-            dineroIngresado = insertarDinero(dineroIngresado, scanner);
-            devolucionVueltas(precioIVA, dineroIngresado);
+           
+            //Fase de mostrar resumen y pago, al menos el cliente debera haber comprado un producto.
+            if (precioNormal > 0.0){
+                precioIVA = calculoPrecioFinal(precioNormal, IVA);
+                mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
+                dineroIngresado = insertarDinero(dineroIngresado, scanner);
+                devolucionVueltas(precioIVA, dineroIngresado);
+            }
             mensajeFinal();
+            scanner.nextLine();
 
-            scanner.close();
-            }while(true);
+            } while (true);       
     }
-
 
     /**
      * Muestra un mensaje de bienvenida al cliente.
      */
-    public static void mensajeBienvenida(){
+    public static void mensajeBienvenida(Scanner scanner){
         System.out.println("=================================");
         System.out.println("   Bienvenido a Sestao-Vending   ");
         System.out.println("=================================");
         System.out.println();
+        System.out.print("Pulse [ENTER] para comenzar: ");
+        scanner.nextLine();
     }
 
     /**
@@ -73,13 +83,14 @@ public class Cliente_Grupo1_MaquinaVending{
      * @param tipoProductos Array que contiene los tipos de los productos.
      */  
     public static void menuTipos(String[] tipoProductos, Scanner scanner){
+        System.out.println();
         System.out.println("----TIPOS DE PRODUCTOS----");
         System.out.println("En esta lista le mostraremos las categorias de nuestros productos.");
         for (int i = 0; i < tipoProductos.length; i++){
             System.out.println(tipoProductos[i]);
         }
         System.out.print("Seleccione un tipo de producto: "); 
-        System.out.println();   
+           
     }
 
     /**
@@ -90,6 +101,7 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,  Scanner scanner ){
         int tipo = scanner.nextInt();
+        System.out.println();
         System.out.println("----PRODUCTOS----");
         
         switch (tipo){
@@ -200,9 +212,11 @@ public class Cliente_Grupo1_MaquinaVending{
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         // Calcular el precio sin IVA
         double precioNormal = 0.0;
-        
 
-    
+        if (filaEncontrada != -1 && columnaEncontrada != -1){
+            precioNormal= precioProducto[filaEncontrada][columnaEncontrada] * contadorCantidadProducto; 
+        };
+
         return precioNormal;
     }
 
