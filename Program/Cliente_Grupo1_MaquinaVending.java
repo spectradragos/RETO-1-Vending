@@ -16,7 +16,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
         String[][] nombreProducto ={
             {"Kit-Kat", "Jumpers", "Filipinos","Doritos"}, 
-            {"Agua", "Coca-Cola", "Kas Limon", "Café Frio"}, 
+            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio"}, 
             {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico"}, 
             {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!"}};
 
@@ -180,7 +180,7 @@ public class Cliente_Grupo1_MaquinaVending{
         for (int i = 0; i < nombreProducto.length; i++) {
             for (int j = 0; j < nombreProducto[i].length; j++) {
                 // Comparamos usando .equals()
-                if (nombreProducto[i][j].equals(productoSeleccionado)) {
+                if (nombreProducto[i][j].equalsIgnoreCase(productoSeleccionado)) {
                     encontrado = true;
                     filaEncontrada = i;
                     columnaEncontrada = j;
@@ -266,8 +266,8 @@ public class Cliente_Grupo1_MaquinaVending{
             double ingreso = scanner.nextDouble(); 
             dineroIngresado += ingreso;
             if (ingreso < precioIVA){
-                double dineroFaltante = precioIVA - ingreso;
-                System.out.println("Dinero insuficiente, aun le faltan : "+dineroFaltante);
+                double dineroFaltante = precioIVA - dineroIngresado;
+                System.out.println("Dinero insuficiente, aun le faltan : "+ dineroFaltante);
             }
         }while (dineroIngresado < precioIVA);
 
@@ -291,8 +291,10 @@ public class Cliente_Grupo1_MaquinaVending{
      * Muestra un mensaje final de agradecimiento de compra.
      */
     public static void mensajeFinal(){
+        System.out.println();
         System.out.println("Muchas gracias por comprar en SESTAO-VENDING.");
         System.out.println("¡Hasta la proxima!");
+        System.out.println();
 
     }
 
@@ -304,7 +306,7 @@ public class Cliente_Grupo1_MaquinaVending{
      */
     public static void calcularVueltas(double cambio){
         //Definir los billetes y las monedas
-        int[] valoresMonetarios={20000, 10000, 5000, 2000, 1000, 200, 100, 50, 20, 10, 5, 2, 1}; 
+        int[] valoresMonetarios={20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1}; 
         String[] denominacionMonetaria= {"Billete de 200","Billete de 100","Billete de 50","Billete de 20","Billete de 10","Billete de 5",
         "Moneda de 2","Moneda de 1","Moneda de 0.50","Moneda de 0.20","Moneda de 0.10","Moneda de 0.05","Moneda de 0.02","Moneda de 0.01"}; 
 
