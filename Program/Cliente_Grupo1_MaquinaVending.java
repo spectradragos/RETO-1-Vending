@@ -9,6 +9,9 @@ public class Cliente_Grupo1_MaquinaVending{
     public static int filaEncontrada = -1; //guardar la posicion del producto en la fila
     public static int columnaEncontrada = -1; //guardar la posicion del producto en la columna
 
+    /** 
+     * Metodo principal del codigo. 
+     */
     public static void main(String[] args){
         Scanner scanner = new Scanner (System.in);
 
