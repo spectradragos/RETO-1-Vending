@@ -57,7 +57,7 @@ public class Cliente_Grupo1_MaquinaVending{
             if (precioNormal > 0.0){
                 precioIVA = calculoPrecioFinal(precioNormal, IVA);
                 mostrarResumenCompra(contadorSeleccion, precioNormal, precioIVA, IVA);
-                dineroIngresado = insertarDinero(dineroIngresado, scanner);
+                dineroIngresado = insertarDinero(precioIVA, scanner);
                 devolucionVueltas(precioIVA, dineroIngresado);
             }
             mensajeFinal();
@@ -89,7 +89,7 @@ public class Cliente_Grupo1_MaquinaVending{
         for (int i = 0; i < tipoProductos.length; i++){
             System.out.println(tipoProductos[i]);
         }
-        System.out.print("Seleccione un tipo de producto: "); 
+        System.out.print("Seleccione un tipo de producto del 1 al 4: "); 
            
     }
 
@@ -213,6 +213,7 @@ public class Cliente_Grupo1_MaquinaVending{
         // Calcular el precio sin IVA
         double precioNormal = 0.0;
 
+        
         if (filaEncontrada != -1 && columnaEncontrada != -1){
             precioNormal= precioProducto[filaEncontrada][columnaEncontrada] * contadorCantidadProducto; 
         };
@@ -255,11 +256,20 @@ public class Cliente_Grupo1_MaquinaVending{
     * Pide al usuario que inserte el dinero. 
     * @return Muestra un double con el dinero a ingresar.
     */
-    public static double insertarDinero(double dineroIngresado, Scanner scanner){
+    public static double insertarDinero(double precioIVA, Scanner scanner){
+        double dineroIngresado = 0.0; 
         System.out.println();
         System.out.print("Introduzca el dinero: ");
         double ingreso = scanner.nextDouble(); 
-        return ingreso;
+        dineroIngresado += ingreso;
+        do {
+        if (ingreso < precioIVA){
+            double dineroFaltante = precioIVA - ingreso;
+            System.out.println("Dinero insuficiente, aun le faltan : "+dineroFaltante);
+        }
+        }while (dineroIngresado < precioIVA);
+
+        return dineroIngresado;
     }
 
     /**
@@ -271,11 +281,8 @@ public class Cliente_Grupo1_MaquinaVending{
             System.out.println("Su cambio: "+ cambio);
             System.out.println("~~ Desglose de monedas ~~");
             calcularVueltas(cambio);
-        } else if (dineroIngresado == precioIVA){
-            System.out.println("Importe exacto!. No hay cambios a devolver.");
         } else {
-            // Hacer la cuenta de lo que falta y volver a pedir que ingrese el dinero. 
-
+            System.out.println("Importe exacto!. No hay cambios a devolver.");
         }
     }
 
