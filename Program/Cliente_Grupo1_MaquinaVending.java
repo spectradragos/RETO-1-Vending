@@ -11,6 +11,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /** 
      * Metodo principal del codigo. 
+     * @param args Los argumentos del metodo main, los cuales en este caso no se ha establecido ninguno. 
      */
     public static void main(String[] args){
         Scanner scanner = new Scanner (System.in);
@@ -71,6 +72,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /**
      * Muestra un mensaje de bienvenida al cliente.
+     * @param scanner Pide al usuario pulse la tecla correspondiente. 
      */
     public static void mensajeBienvenida(Scanner scanner){
         System.out.println("=================================");
@@ -84,6 +86,7 @@ public class Cliente_Grupo1_MaquinaVending{
     /**
      * Muestra el menú de tipos de productos.
      * @param tipoProductos Array que contiene los tipos de los productos.
+     * @param scanner Pide al usuario que ingrese el valor numerico del tipo.  
      */  
     public static void menuTipos(String[] tipoProductos, Scanner scanner){
         System.out.println();
@@ -98,9 +101,10 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /**
      * Muestra el menú de productos de un solo tipo. 
-     * @param tiposProductos Array que contiene los tipos de los productos.
-     * @param nombreProducto Array que contiene los nombres de los productos
-     * @param precioProducto Array que contiene los precios de los productos
+     * @param tipoProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos.
+     * @param precioProducto Array que contiene los precios de los productos.
+     * @param scanner Pide al usuario que ingrese un producto. 
      */
     public static void menuProductos(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,  Scanner scanner ){
         int tipo = scanner.nextInt();
@@ -163,9 +167,10 @@ public class Cliente_Grupo1_MaquinaVending{
      
     /**
      * Pide al cliente que selecciones un producto
-     * @param producto Array con la posicion de los productos.
-     * @param contadorSeleccion Cuenta cuantos productos diferentes se han seleccionado
-     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado
+     * @param tipoProductos Array que contiene los tipos de los productos.
+     * @param nombreProducto Array que contiene los nombres de los productos.
+     * @param contadorSeleccion Cuenta cuantos productos diferentes se han seleccionado.
+     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado.
      * @param scanner Pide al usuario que ingrese el nombre del producto.
      * @return devuleve un número entero. 
      */
@@ -207,11 +212,11 @@ public class Cliente_Grupo1_MaquinaVending{
     
 
     /**
-     * Calcula el precio total sin IVA
-     * @param contadorSeleccion Cuenta cuantos productos diferentes 
-     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado
-     * @param precioProducto Un array con los precios de los productos
-     * @return un double con el precio sin el IVA
+     * Calcula el precio total sin IVA.
+     * @param contadorSeleccion Cuenta cuantos productos diferentes.
+     * @param contadorCantidadProducto Cuenta cuentas unidades del mismo producto se han seleccionado.
+     * @param precioProducto Un array con los precios de los productos.
+     * @return un double con el precio sin el IVA.
      */
     public static double calculoPrecio(int contadorSeleccion, int contadorCantidadProducto, double[][] precioProducto){
         // Calcular el precio sin IVA
@@ -226,9 +231,10 @@ public class Cliente_Grupo1_MaquinaVending{
     }
 
     /**
-     * Calcula el precio final incluyendo el IVA
-     * @param precioNormal El importe sin iVA
-     * @return Un double con el precio con IVA
+     * Calcula el precio final incluyendo el IVA.
+     * @param precioNormal El importe sin iVA.
+     * @param IVA Constante del IVA.
+     * @return Un double con el precio con IVA.
      */
     public static double calculoPrecioFinal(double precioNormal, double IVA){
         double precioIVA = precioNormal * (1 + IVA); 
@@ -237,10 +243,10 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /**
      * Muestra un resumen de la compra. 
-     * @param contadorSeleccion Cuenta cuantos productos diferentes
-     * @param precioNormal El importe sin iVA
-     * @param precioIVAl El importe total incluyendo el IVA
-     * @param IVA Constante del IVA
+     * @param contadorSeleccion Cuenta cuantos productos diferentes.
+     * @param precioNormal El importe sin iVA.
+     * @param precioIVAl El importe total incluyendo el IVA.
+     * @param IVA Constante del IVA.
      */
     public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA, double IVA){
         System.out.println();
@@ -258,6 +264,8 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /**
     * Pide al usuario que inserte el dinero. 
+    * @param precioIVA El precio con el iva incluido.
+    * @param scanner Pide al usuario que ingrese la cantidad de dinero.
     * @return Muestra un double con el dinero a ingresar.
     */
     public static double insertarDinero(double precioIVA, Scanner scanner){
@@ -280,6 +288,8 @@ public class Cliente_Grupo1_MaquinaVending{
 
     /**
      * Muestra el cambio. 
+     * @param precioIVA El precio con el iva incluido.
+     * @param dineroIngresado El dinero que se mete a la maquina para realizar el pago. 
      */
     public static void devolucionVueltas(double precioIVA, double dineroIngresado){
         if (dineroIngresado > precioIVA){
@@ -332,7 +342,7 @@ public class Cliente_Grupo1_MaquinaVending{
     /**
      * Pregunta al usuario si quiere volver a seleccionar productos o finalizar con la compra. 
      * @param scanner Respuesta del usuario. 
-     * @return
+     * @return Devuelve la opcion mediante un string. 
      */
     public static String vueltaMenu(Scanner scanner){
         scanner.nextLine();
