@@ -6,8 +6,11 @@ public class Cliente_Grupo1_MaquinaVending{
     public static final double IVA = 0.21;
 
     //VARIABLES GLOBALES
-    public static int filaEncontrada = -1; //guardar la posicion del producto en la fila
-    public static int columnaEncontrada = -1; //guardar la posicion del producto en la columna
+    //guardar la posicion del producto en la fila
+    public static int filaEncontrada = -1; 
+    
+    //guardar la posicion del producto en la columna
+    public static int columnaEncontrada = -1; 
 
     /** 
      * Metodo principal del codigo. 
@@ -245,7 +248,7 @@ public class Cliente_Grupo1_MaquinaVending{
      * Muestra un resumen de la compra. 
      * @param contadorSeleccion Cuenta cuantos productos diferentes.
      * @param precioNormal El importe sin iVA.
-     * @param precioIVAl El importe total incluyendo el IVA.
+     * @param precioIVA El precio con el iva incluido.
      * @param IVA Constante del IVA.
      */
     public static void mostrarResumenCompra(int contadorSeleccion, double precioNormal, double precioIVA, double IVA){
