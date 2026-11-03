@@ -191,7 +191,7 @@ public class Cliente_Grupo1_MaquinaVending{
 
         // Sumar al contador del producto
         if (encontrado) {
-            System.out.println("El producto ha sido seleccionado correctamente.");
+            System.out.print("El producto ha sido seleccionado correctamente.");
             contadorSeleccion++; 
         } else {
             System.out.println("Producto no encontrado.");
@@ -259,14 +259,16 @@ public class Cliente_Grupo1_MaquinaVending{
     public static double insertarDinero(double precioIVA, Scanner scanner){
         double dineroIngresado = 0.0; 
         System.out.println();
-        System.out.print("Introduzca el dinero: ");
-        double ingreso = scanner.nextDouble(); 
-        dineroIngresado += ingreso;
+
+        // Se repite mientras el dinero que se vaya insertado sea menor que lo que cuesta la compra. 
         do {
-        if (ingreso < precioIVA){
-            double dineroFaltante = precioIVA - ingreso;
-            System.out.println("Dinero insuficiente, aun le faltan : "+dineroFaltante);
-        }
+            System.out.print("Introduzca el dinero: ");
+            double ingreso = scanner.nextDouble(); 
+            dineroIngresado += ingreso;
+            if (ingreso < precioIVA){
+                double dineroFaltante = precioIVA - ingreso;
+                System.out.println("Dinero insuficiente, aun le faltan : "+dineroFaltante);
+            }
         }while (dineroIngresado < precioIVA);
 
         return dineroIngresado;
@@ -279,7 +281,6 @@ public class Cliente_Grupo1_MaquinaVending{
         if (dineroIngresado > precioIVA){
             double cambio = dineroIngresado-precioIVA;
             System.out.println("Su cambio: "+ cambio);
-            System.out.println("~~ Desglose de monedas ~~");
             calcularVueltas(cambio);
         } else {
             System.out.println("Importe exacto!. No hay cambios a devolver.");
@@ -312,6 +313,7 @@ public class Cliente_Grupo1_MaquinaVending{
         int centimosRestantes = (int)Math.round(cambio*100); //Math.round redondea los numeros , ya se float o double, a numeros enteros. 
 
         //Desglose del cambio
+        System.out.println("~~ Desglose de monedas ~~");
         for (int i = 0; i < valoresMonetarios.length; i++){
             if (centimosRestantes >= valoresMonetarios[i]){
                 int cantidad = centimosRestantes / valoresMonetarios[i]; // Unidades de billetes o monedas ya desglosadas
