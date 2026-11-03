@@ -14,7 +14,7 @@ public class Empleado_Grupo1_MaquinaVending{
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
 
-       String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
+        String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
         String[][] nombreProducto ={
             {"Kit-Kat", "Jumpers", "Filipinos","Doritos"}, 
@@ -32,29 +32,34 @@ public class Empleado_Grupo1_MaquinaVending{
         String usuario = "";
         String contraseña = "";
 
-
-        mensajeBienvenida();
-        boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
-        //if para comprobar si el acceso es correcto o no.       
-        if (accesoCorrecto){
-            menuAdministrador(tipoProductos, nombreProducto, precioProducto,scanner);
-        }else{
-           System.out.println("ACCESO DENEGADO! NO ESTA ACREDITADO PARA CONTINUAR. ");
-        };
-        scanner.close();
+        
+        do {
+            mensajeBienvenida(scanner);
+            boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
+            //if para comprobar si el acceso es correcto o no.       
+            if (accesoCorrecto){
+                menuAdministrador(tipoProductos, nombreProducto, precioProducto,scanner);
+            }else{
+            System.out.println("ACCESO DENEGADO! NO ESTA ACREDITADO PARA CONTINUAR. ");
+            };
+        } while (true); 
+        //scanner.close();
 
     }
 
     
     /**
      * Muestra un mensaje de bienvenida.
+     * @param scanner Pide al usuario pulse la tecla correspondiente. 
      */
-    public static void mensajeBienvenida(){
+    public static void mensajeBienvenida(Scanner scanner){
+        System.out.println();
         System.out.println("======================================");
         System.out.println("     Administración de la maquina.    ");
         System.out.println("======================================");
         System.out.println();
-        System.out.println("Inicie sesion para continuar");
+        System.out.print("Pulse [ENTER] para comenzar: ");
+        scanner.nextLine();
 
     }
 
