@@ -86,16 +86,17 @@ iframe{
     width: 850px;
 }
 
-#infoSobreNosotros{
-    display: flex;
-    gap: 10px; 
+#infoDescriptiva{
+    display:flex; 
+    gap: 10px;
+    margin-left: 20px; 
 }
 
-#descripcion{
+#SV_logo{
     flex: 1; 
-    min-width: 250px;
+    width: 100px;
 }
-#ubicacion{
-    flex: 2;
-    min-width: 250px;
+#descipcion{
+    flex: 2; 
 }
+
