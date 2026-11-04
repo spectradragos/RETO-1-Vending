@@ -1,0 +1,78 @@
+*{
+    text-align: center;
+    box-sizing: border-box;
+}
+
+nav {
+   background-color: beige;
+   font-style: oblique;
+}
+
+footer{
+    text-align: center;
+    background-color: rgb(244, 255, 232);
+    margin: 0; 
+    padding: 0;
+    width: fit-content;
+}
+
+th, td, tr{
+    text-align: center;
+    background-color: rgb(255, 212, 212);
+    border: 2px;
+    border-style: solid;
+    border-color: green;
+    width: 150px;
+
+}
+
+header{
+    background-color: red;
+    color: white;
+    text-align: center;
+    
+}
+
+a{
+    color: green;
+}
+
+img{
+    padding: 0%;
+    margin: 0%;
+    text-align: center;
+}
+
+ul {
+  text-align: center;      /* Centra el texto o elementos inline */
+  padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+li::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.Sublist{
+    margin-left: 20px;
+}
+
+table {
+  width: 80%; /* O un valor en píxeles como 500px */
+  margin: 0 auto; /* Centra la tabla horizontalmente */
+}
+
+iframe{
+    width: 1500px;
+}
