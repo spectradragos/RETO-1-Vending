@@ -8,6 +8,15 @@ nav {
    font-style: italic;
 }
 
+#logo{
+    width: 95px;
+    position: absolute;
+    top: 25px;
+    left: 20px; 
+    border: 1px;
+    border-radius: 100px;
+}
+
 footer{
     text-align: center;
     background-color: rgb(244, 255, 232);
