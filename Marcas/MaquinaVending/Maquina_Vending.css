@@ -100,3 +100,18 @@ iframe{
     flex: 2; 
 }
 
+#infoEncuentranos{
+    display:flex; 
+    gap: 10px;
+}
+
+#infoContacto{
+    flex: 2;
+}
+
+#ubicacion{
+    flex: 1;
+}
+
+
+
