@@ -27,6 +27,13 @@ public class Empleado_Grupo1_MaquinaVending{
             {1.00, 2.50, 2.50, 1.20}, 
             {15.00, 3.00, 5.00, 20.00}, 
             {3.99, 3.50, 3.50, 4.99}};
+        
+        int [][] cantidadProducto={
+            {10,10,10,10},
+            {10,10,10,10},
+            {10,10,10,10},
+            {10,10,10,10},
+        };
 
             
         String usuario = "";
@@ -160,9 +167,22 @@ public class Empleado_Grupo1_MaquinaVending{
 
         //Hacer un nuevo array para añadir los nuevos productos y precios.
         //Productos
+        String[][] nombreNuevo = new String[nombreProducto.length + 1][nombreProducto[0].length];
+        
+        //Copiar el array antiguo. 
+        for (int i = 0; i < nombreProducto.length; i++){
+            for(int j = 0; i < nombreProducto[i].length; j++){
+                nombreAñadido = nombreNuevo[i][j];
+                nombreNuevo[i][j]= nombreProducto[i][j];
+            }
+        }
         
 
         //Precios
+        double[][] precioNuevo = new double[precioProducto.length + 1][precioProducto[0].length];
+
+        //Copiar el array antiguo. 
+
 
     
         
