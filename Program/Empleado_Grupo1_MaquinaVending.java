@@ -72,7 +72,7 @@ public class Empleado_Grupo1_MaquinaVending{
      */
     public static boolean inicioSesion(String usuario, String contraseña, Scanner scanner ){
         System.out.println();
-        System.out.println("----INICIO DE SESION----");
+        System.out.println("Debera iniciar sesion para continuar.");
         System.out.println(); 
         System.out.print("Introduzca el usuario: ");
         String user = scanner.nextLine();
@@ -142,16 +142,13 @@ public class Empleado_Grupo1_MaquinaVending{
         scanner.nextLine(); //limpia el scanner.
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
         System.out.println("Aqui se podra añadir un nuevo producto a la lista de los productos.");
+        System.out.println();
         System.out.println("A continuación, se le mostara el listado de los tipos de porductos de los que disponemos.");
         
-        //Mostrar lo tipos.
-         for (int i = 0; i < tipoProductos.length; i++){
-            System.out.println(tipoProductos[i]);
-        }
+        mostrarTipos(tipoProductos);
+
         System.out.print("Introduzca el tipo del nuevo producto: ");
         String tipoIndex= scanner.nextLine();
-
-        //Mostrar los productos que hay.
 
         //Pedir los datos para el nuevo producto, junto a su precio.
         System.out.print("Introduzca el nombre del producto: ");
@@ -170,10 +167,10 @@ public class Empleado_Grupo1_MaquinaVending{
     
         
         System.out.println("Exito! Se ha introducido correctamente. ");
-        //System.out.println("Se ha introducido en el tipo " + tipoNuevo + " el producto " + nombreNuevo + " con el precio de " + precioNuevo + " euros.");
         System.out.println();
 
         //Preguntar si quiere ver la lista modificada.
+
 
         //Metodo para volver al menu. 
         vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
@@ -193,6 +190,10 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println("----MODIFICAR UN PRODUCTO----");
         System.out.print("¿Que quieres modificar?(Nombre/Precio)");
         String modificacion= scanner.nextLine();
+
+        // Mostrar los tipos
+
+        //Mostrar los productos que hay.
 
         if(modificacion == "Nombre"){
             /* Preguntar de que tipo es el producto.
@@ -271,5 +272,17 @@ public class Empleado_Grupo1_MaquinaVending{
             default:
                 break;
         }
+    }
+
+    /**
+     * Muestra los tipos de los productos
+     * @param tipoProductos Los tipos de los productos
+     */
+    public static void mostrarTipos(String[] tipoProductos){
+        //Mostrar lo tipos.
+         for (int i = 0; i < tipoProductos.length; i++){
+            System.out.println(tipoProductos[i]);
+        }
+
     }
 }
