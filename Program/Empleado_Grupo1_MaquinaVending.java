@@ -208,7 +208,7 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println();
         scanner.nextLine();
         System.out.println("----MODIFICAR UN PRODUCTO----");
-        System.out.print("¿Que quieres modificar?(Nombre/Precio)");
+        System.out.print("¿Que quieres modificar?(Nombre/Precio/Cantidad)");
         String modificacion= scanner.nextLine();
 
         // Mostrar los tipos
@@ -230,9 +230,11 @@ public class Empleado_Grupo1_MaquinaVending{
                 */
             System.out.print("Introduce el nuevo precio del producto: ");
             double nombreModificado = scanner.nextDouble();
-        }else {
-            System.out.println("Se ha introducido una opcion no valida!");
-        };
+        }else if (modificacion == "Cantidad"){
+
+           
+        }else { 
+            System.out.println("Se ha introducido una opcion no valida!");}
 
         //Metodo para volver al menu. 
         vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
