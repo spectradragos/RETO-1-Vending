@@ -15,10 +15,10 @@ public class Empleado_Grupo1_MaquinaVending{
         String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
         String[][] nombreProducto ={
-            {"Kit-Kat", "Jumpers", "Filipinos","Doritos", ""}, 
-            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio",""}, 
-            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico",""}, 
-            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!",""}};
+            {"Kit-Kat", "Jumpers", "Filipinos","Doritos", "vacio"}, 
+            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio","vacio"}, 
+            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico","vacio"}, 
+            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!","vacio"}};
 
         double[][] precioProducto ={
             {1.20, 1.20, 1.10, 1.50, 0.0}, 
@@ -33,11 +33,10 @@ public class Empleado_Grupo1_MaquinaVending{
             {10,10,10,10,0},
         };
 
-            
         String usuario = "";
         String contraseña = "";
 
-        
+        //Bucle para 
         do {
             mensajeBienvenida(scanner);
             boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
@@ -150,8 +149,11 @@ public class Empleado_Grupo1_MaquinaVending{
         
         mostrarTipos(tipoProductos);
 
-        System.out.print("Introduzca el tipo del nuevo producto(del 0 al 3): ");
+        System.out.print("Introduzca el tipo del nuevo producto(del 1 al 4): ");
         int tipoIndex= scanner.nextInt();
+
+        //para ajustar el indice a las posiciones del array.
+        int añadir = tipoIndex - 1;
         scanner.nextLine();
 
         //Pedir los datos para el nuevo producto, junto a su precio.
@@ -166,17 +168,17 @@ public class Empleado_Grupo1_MaquinaVending{
         boolean guardado = false; 
         for (int i = 0; i < nombreProducto.length; i++){
             for (int j = 0; j< nombreProducto[i].length; j++){
-                //Crea un espacio nuevo vacio y guarda hay los datos introducidos. 
-                if (nombreProducto[tipoIndex][j]== null && precioProducto[tipoIndex][j]== 0.0 && cantidadProducto[tipoIndex][j]== 0){
+                //Busca los espacios vaciosm, donde se guardara la informacion nueva.  
+                if (nombreProducto[tipoIndex][j].equals("vacio") && precioProducto[tipoIndex][j]== 0.0 && cantidadProducto[tipoIndex][j]== 0){
                     nombreProducto[tipoIndex][j]= nombreAñadido;
                     precioProducto[tipoIndex][j]= precioAñadido;
                     cantidadProducto[tipoIndex][j]= 10; 
                     guardado = true;
                     break;
-                
                 }
             }
         }
+        // Mostrara un mesaje dependiendo como se ha guardado.  
         if (guardado){
             System.out.println("Exito! Se ha introducido correctamente. ");
         }else{
@@ -205,7 +207,7 @@ public class Empleado_Grupo1_MaquinaVending{
         boolean encontrado= false; 
         for (int i = 0; i < nombreProducto.length; i++){
             for (int j = 0; j < nombreProducto[i].length; j++){
-                
+    
                 // compara lo introducido por el usuario con el elemento del array. 
                 // Evita los espacio vacios que puedan haber para evitar producir errores. 
                 if(nombreProducto[i][j] != null && nombreProducto[i][j].equals(productoBuscar)){ 
@@ -213,6 +215,7 @@ public class Empleado_Grupo1_MaquinaVending{
                 System.out.print("¿Que quieres  modificar?(Nombre/Precio/Cantidad): ");
                 String modificacion= scanner.nextLine();
 
+                    //Dependiendo de que se quiera modificar, preguntara cosas diferentes. 
                     if(modificacion.equals("Nombre")){
                         System.out.print("Introduce el nuevo nombre del producto: ");
                         nombreProducto[i][j]= scanner.nextLine();
@@ -221,13 +224,13 @@ public class Empleado_Grupo1_MaquinaVending{
                     }else if (modificacion.equals("Precio")){
                         System.out.print("Introduce el nuevo precio del producto: ");
                         precioProducto[i][j]= scanner.nextDouble();
-                        System.out.print("Se ha modificado de manera exitosa!");
+                        System.out.println("Se ha modificado de manera exitosa!");
                         scanner.nextLine();
 
                     }else if (modificacion.equals("Cantidad")){
                         System.out.print("Introduce la nueva cantidad del producto: ");
                         cantidadProducto[i][j]= scanner.nextInt();
-                        System.out.print("Se ha modificado de manera exitosa!");
+                        System.out.println("Se ha modificado de manera exitosa!");
                         scanner.nextLine();
                     }else { 
                         System.out.println("Se ha introducido una opcion no valida!");
