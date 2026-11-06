@@ -5,8 +5,6 @@ public class Empleado_Grupo1_MaquinaVending{
     public static final String USUARIO_CORRECTO = "Admin";
     public static final String CONTRASEÑA_CORRECTA = "Admin";
 
-    
-    
     /** 
      * Metodo principal del codigo. 
      * @param args Los argumentos del metodo main, los cuales en este caso no se ha establecido ninguno. 
@@ -17,22 +15,22 @@ public class Empleado_Grupo1_MaquinaVending{
         String[] tipoProductos ={"1. Chuches", "2. Bebidas", "3. Cargadores", "4. Sobres"};
 
         String[][] nombreProducto ={
-            {"Kit-Kat", "Jumpers", "Filipinos","Doritos"}, 
-            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio"}, 
-            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico"}, 
-            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!"}};
+            {"Kit-Kat", "Jumpers", "Filipinos","Doritos", ""}, 
+            {"Agua", "Coca-Cola", "Kas Limon", "Cafe Frio",""}, 
+            {"Powerbank Celeste", "Cable Tipo C", "Cargador Iphone", "Powerbank magnetico",""}, 
+            {"Pokemon", "Magic", "Digimon", "Yu-Gi-Oh!",""}};
 
         double[][] precioProducto ={
-            {1.20, 1.20, 1.10, 1.50}, 
-            {1.00, 2.50, 2.50, 1.20}, 
-            {15.00, 3.00, 5.00, 20.00}, 
-            {3.99, 3.50, 3.50, 4.99}};
+            {1.20, 1.20, 1.10, 1.50, 0.0}, 
+            {1.00, 2.50, 2.50, 1.20, 0.0}, 
+            {15.00, 3.00, 5.00, 20.00, 0.0}, 
+            {3.99, 3.50, 3.50, 4.99, 0.0}};
         
         int [][] cantidadProducto={
-            {10,10,10,10},
-            {10,10,10,10},
-            {10,10,10,10},
-            {10,10,10,10},
+            {10,10,10,10,0},
+            {10,10,10,10,0},
+            {10,10,10,10,0},
+            {10,10,10,10,0},
         };
 
             
@@ -45,16 +43,14 @@ public class Empleado_Grupo1_MaquinaVending{
             boolean accesoCorrecto = inicioSesion(usuario, contraseña, scanner); 
             //if para comprobar si el acceso es correcto o no.       
             if (accesoCorrecto){
-                menuAdministrador(tipoProductos, nombreProducto, precioProducto,scanner);
+                menuAdministrador(tipoProductos, nombreProducto, precioProducto, cantidadProducto, scanner);
             }else{
             System.out.println("ACCESO DENEGADO! NO ESTA ACREDITADO PARA CONTINUAR. ");
             };
         } while (true); 
-        //scanner.close();
 
     }
 
-    
     /**
      * Muestra un mensaje de bienvenida.
      * @param scanner Pide al usuario pulse la tecla correspondiente. 
@@ -67,9 +63,7 @@ public class Empleado_Grupo1_MaquinaVending{
         System.out.println();
         System.out.print("Pulse [ENTER] para comenzar: ");
         scanner.nextLine();
-
     }
-
 
     /**
      * Pide al usuario inciar sesion para poder acceder al menu de administrador.
@@ -100,9 +94,10 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos.
      * @param precioProducto Array que contiene los precios de los productos.
+     * @param cantidadProducto Cantidad de stock del producto. 
      * @param scanner Lugar donde se guardara la información introducida. 
      */
-    public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,Scanner scanner){
+    public static void menuAdministrador(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,int[][] cantidadProducto,Scanner scanner){
         System.out.println();
         System.out.println("BIENVENIDO AL SISTEMA! Aqui podra administrar el sistema de la maquina expendedora. A continuación, se le mostrara el menu con las diferentes opciones.");
         System.out.println();
@@ -118,20 +113,20 @@ public class Empleado_Grupo1_MaquinaVending{
         // A donde se dirigira en caso de elegir una opcion u otra. 
         switch (opcion){
             case 1:
-                anadirNuevoProducto(tipoProductos, nombreProducto, precioProducto, scanner);
+                anadirNuevoProducto(tipoProductos, nombreProducto,  precioProducto, cantidadProducto, scanner);
                 break; 
             case 2:
-                modificarProducto(tipoProductos,nombreProducto,precioProducto, scanner);
+                modificarProducto(tipoProductos, nombreProducto,  precioProducto, cantidadProducto, scanner);
                 break; 
             case 3: 
-                eliminarProducto(tipoProductos, nombreProducto, precioProducto, scanner);
+                eliminarProducto(tipoProductos, nombreProducto,  precioProducto, cantidadProducto, scanner);
                 break; 
             case 4: 
                 mensajeFinal();
                 break;
             default:
                 System.out.println("Opcion invalida. Por favor, vuelva a seleccionar una opcion valida.");
-                menuAdministrador(tipoProductos, nombreProducto, precioProducto, scanner);
+                menuAdministrador(tipoProductos, nombreProducto,  precioProducto, cantidadProducto, scanner);
                     
         }
     }
@@ -142,9 +137,10 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param cantidadProducto Cantidad de stock del producto. 
      * @param scanner Lugar donde se guardara la información introducida. 
      */
-    public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
+    public static void anadirNuevoProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, int[][] cantidadProducto, Scanner scanner){
         System.out.println();
         scanner.nextLine(); //limpia el scanner.
         System.out.println("----AÑADIR UN NUEVO PRODUCTO----");
@@ -154,8 +150,9 @@ public class Empleado_Grupo1_MaquinaVending{
         
         mostrarTipos(tipoProductos);
 
-        System.out.print("Introduzca el tipo del nuevo producto: ");
-        String tipoIndex= scanner.nextLine();
+        System.out.print("Introduzca el tipo del nuevo producto(del 0 al 3): ");
+        int tipoIndex= scanner.nextInt();
+        scanner.nextLine();
 
         //Pedir los datos para el nuevo producto, junto a su precio.
         System.out.print("Introduzca el nombre del producto: ");
@@ -165,36 +162,28 @@ public class Empleado_Grupo1_MaquinaVending{
         Double precioAñadido= scanner.nextDouble();
         scanner.nextLine();
 
-        //Hacer un nuevo array para añadir los nuevos productos y precios.
-        //Productos
-        String[][] nombreNuevo = new String[nombreProducto.length + 1][nombreProducto[0].length];
-        
-        //Copiar el array antiguo. 
+        //Guardar el producto
+        boolean guardado = false; 
         for (int i = 0; i < nombreProducto.length; i++){
-            for(int j = 0; i < nombreProducto[i].length; j++){
-                nombreAñadido = nombreNuevo[i][j];
-                nombreNuevo[i][j]= nombreProducto[i][j];
+            for (int j = 0; j< nombreProducto[i].length; j++){
+                //Crea un espacio nuevo vacio y guarda hay los datos introducidos. 
+                if (nombreProducto[tipoIndex][j]== null && precioProducto[tipoIndex][j]== 0.0 && cantidadProducto[tipoIndex][j]== 0){
+                    nombreProducto[tipoIndex][j]= nombreAñadido;
+                    precioProducto[tipoIndex][j]= precioAñadido;
+                    cantidadProducto[tipoIndex][j]= 10; 
+                    guardado = true;
+                    break;
+                
+                }
             }
         }
-        
-
-        //Precios
-        double[][] precioNuevo = new double[precioProducto.length + 1][precioProducto[0].length];
-
-        //Copiar el array antiguo. 
-
-
-    
-        
-        System.out.println("Exito! Se ha introducido correctamente. ");
-        System.out.println();
-
-        //Preguntar si quiere ver la lista modificada.
-
-
+        if (guardado){
+            System.out.println("Exito! Se ha introducido correctamente. ");
+        }else{
+            System.out.println("Error! No se ha introducido correctamente. ");
+        }
         //Metodo para volver al menu. 
-        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
-
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, cantidadProducto, scanner);;
     }
 
     /**
@@ -202,42 +191,59 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param cantidadProducto Cantidad de stock del producto. 
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
+    public static void modificarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, int[][] cantidadProducto, Scanner scanner){
         System.out.println();
         scanner.nextLine();
         System.out.println("----MODIFICAR UN PRODUCTO----");
-        System.out.print("¿Que quieres modificar?(Nombre/Precio/Cantidad)");
-        String modificacion= scanner.nextLine();
+        System.out.print("¿Que quieres producto modificar?: ");
+        String productoBuscar= scanner.nextLine();
+        
+        // busca el producto 
+        boolean encontrado= false; 
+        for (int i = 0; i < nombreProducto.length; i++){
+            for (int j = 0; j < nombreProducto[i].length; j++){
+                
+                // compara lo introducido por el usuario con el elemento del array. 
+                // Evita los espacio vacios que puedan haber para evitar producir errores. 
+                if(nombreProducto[i][j] != null && nombreProducto[i][j].equals(productoBuscar)){ 
+                encontrado = true; 
+                System.out.print("¿Que quieres  modificar?(Nombre/Precio/Cantidad): ");
+                String modificacion= scanner.nextLine();
 
-        // Mostrar los tipos
+                    if(modificacion.equals("Nombre")){
+                        System.out.print("Introduce el nuevo nombre del producto: ");
+                        nombreProducto[i][j]= scanner.nextLine();
+                        System.out.print("Se ha modificado de manera exitosa!");
 
-        //Mostrar los productos que hay.
+                    }else if (modificacion.equals("Precio")){
+                        System.out.print("Introduce el nuevo precio del producto: ");
+                        precioProducto[i][j]= scanner.nextDouble();
+                        System.out.print("Se ha modificado de manera exitosa!");
+                        scanner.nextLine();
 
-        if(modificacion == "Nombre"){
-            /* Preguntar de que tipo es el producto.
-            El nombre del producto antiguo
-            Preguntar el nombre nuevo
-            Modificar el nombre
-            */
-            System.out.print("Introduce el nuevo nombre del producto: ");
-            String nombreModificado = scanner.nextLine();
-        }else if (modificacion == "Precio"){
-            /*  El precio antiguo
-                Preguntar el precio nuevo
-                Modificar el precio
-                */
-            System.out.print("Introduce el nuevo precio del producto: ");
-            double nombreModificado = scanner.nextDouble();
-        }else if (modificacion == "Cantidad"){
+                    }else if (modificacion.equals("Cantidad")){
+                        System.out.print("Introduce la nueva cantidad del producto: ");
+                        cantidadProducto[i][j]= scanner.nextInt();
+                        System.out.print("Se ha modificado de manera exitosa!");
+                        scanner.nextLine();
+                    }else { 
+                        System.out.println("Se ha introducido una opcion no valida!");
+                    }
+                }
+                break; // para marcar que el bucle interno a finalizado. 
+            }
+            if(encontrado) break; // para marcar que el bucle externo a finalizado. 
+        }
 
-           
-        }else { 
-            System.out.println("Se ha introducido una opcion no valida!");}
-
+        //Si no se encuentra el producto
+        if (!encontrado){
+            System.out.println("No se ha encontrado en producto!");
+        }
         //Metodo para volver al menu. 
-        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, cantidadProducto, scanner);;
     }
 
     /**
@@ -245,29 +251,38 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param cantidadProducto Cantidad de stock del producto. 
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner ){
+    public static void eliminarProducto(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto,int[][] cantidadProducto, Scanner scanner ){
         System.out.println();
         scanner.nextLine();
         System.out.println("----ELIMINAR UN PRODUCTO----");
         System.out.print("¿Que producto quieres eliminar?: ");
         String productoEliminado = scanner.nextLine();
-
-        //Buscar y reemplazar el producto.
-        for (int i = 0; i< nombreProducto.length; i++){
+        // Busca el producto
+        boolean guardado = false; 
+        for (int i = 0; i < nombreProducto.length; i++){
             for (int j = 0; j< nombreProducto[i].length; j++){
-                if(nombreProducto[i][j].equals(productoEliminado)){
-                    nombreProducto[i][j] = null;
+                
+                //Compara el producto introducido por el usuario y en caso de que haya espacios vacios, lo evita, evitando que se produzcan errores. 
+                if(nombreProducto[i][j] != null && nombreProducto[i][j].equals(productoEliminado)){
+                    nombreProducto[i][j]= null;
+                    precioProducto[i][j]= 0.0;
+                    cantidadProducto[i][j]= 0; 
+                    guardado = true;
                     break;
                 }
             }
         }
 
-        //Muestra la lista nueva. 
-
+        if (guardado){
+            System.out.println("Exito! El producto se ha eliminado correctamente. ");
+        }else{
+            System.out.println("Error! No se ha introducido correctamente. ");
+        }
         //Metodo para volver al menu. 
-        vueltaMenu(tipoProductos, nombreProducto, precioProducto, scanner);
+        vueltaMenu(tipoProductos, nombreProducto, precioProducto, cantidadProducto, scanner);
     }
 
     /**
@@ -275,7 +290,6 @@ public class Empleado_Grupo1_MaquinaVending{
      */
     public static void mensajeFinal(){
         System.out.println("Muchas gracias por trabajar con nosotros!");
-
     }
 
     /**
@@ -283,17 +297,13 @@ public class Empleado_Grupo1_MaquinaVending{
      * @param tiposProductos Array que contiene los tipos de los productos.
      * @param nombreProducto Array que contiene los nombres de los productos
      * @param precioProducto Array que contiene los precios de los productos
+     * @param cantidadProducto Cantidad de stock del producto. 
      * @param scanner Lugar donde se guardara la información introducida.
      */
-    public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, Scanner scanner){
-        System.out.print("¿Quieres volver al menu?(Si/No) ");
-        String vuelta = scanner.nextLine();
-        switch (vuelta){
-            case "Si":
-                menuAdministrador(tipoProductos, nombreProducto, precioProducto, scanner);
-            default:
-                break;
-        }
+    public static void vueltaMenu(String[] tipoProductos, String[][] nombreProducto, double[][] precioProducto, int [][]cantidadProducto,Scanner scanner){
+        System.out.print("Pulse [ENTER] para volver al menu de administracion ");
+        scanner.nextLine();
+        menuAdministrador(tipoProductos, nombreProducto,  precioProducto, cantidadProducto, scanner);
     }
 
     /**
@@ -305,6 +315,5 @@ public class Empleado_Grupo1_MaquinaVending{
          for (int i = 0; i < tipoProductos.length; i++){
             System.out.println(tipoProductos[i]);
         }
-
     }
 }
