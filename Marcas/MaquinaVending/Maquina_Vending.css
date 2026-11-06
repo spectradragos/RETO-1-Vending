@@ -36,7 +36,7 @@ th, td, tr{
     border: 2px;
     border-style: solid;
     border-color: green;
-    width: 150px;
+    width: 100px;
 
 }
 
@@ -99,7 +99,7 @@ iframe{
 
 #SV_logo{
     flex: 1; 
-    width: 100px;
+    max-width: 300px;
 }
 #descipcion{
     flex: 2; 
@@ -118,6 +118,12 @@ iframe{
     flex: 1;
 }
 
+<<<<<<< HEAD
+caption{
+    background-color: rgb(244, 255, 232);
+    padding: 3px;
+    margin: 0px;
+=======
 /*------FOOTER------*/
 
 footer{
@@ -126,6 +132,7 @@ footer{
     margin: 0; 
     padding: 0;
     width: fit-content;
+>>>>>>> f24435f3f9c661e818801c71886e05c389bf42d7
 }
 
  
